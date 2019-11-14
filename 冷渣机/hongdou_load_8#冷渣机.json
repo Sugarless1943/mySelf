@@ -1,0 +1,278 @@
+{
+	"globalConf": {
+		"engineName": "flink",
+		"name": "test_hongdou_lengfengji",
+		"flink.running.mode": "localui",
+		"flink.running.controller.ignore": true
+	},
+	"nodes": [
+		{
+			"nodeId": "0",
+			"moduleId": "Source:File",
+			"parameters": {
+				"path": "/opt/BI-engine/files/zj/source/test_hongdou_lengfengji.csv"
+			}
+		},
+		{
+			"nodeId": "LZJ0",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"instanceId": "b01df921-f561-11e9-9e7a-4cedfbbe0911",
+				"version": "1.0",
+				"inputMapping": {
+					"GM1": "M1201AML",
+					"GM2": "M1201BML",
+					"GM3": "M1201CML"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "LZHi"
+				},
+				"defaultValue": null
+			}
+		},
+		{
+			"nodeId": "LZJ1",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "冷渣机T1时刻值",
+			"parameters": {
+				"timeWindowLength": 300000,
+				"timeInterval": 2000,
+				"maxTolerance": 20,
+				"constantValues": {
+					"t1": 30000
+				},
+				"methods": [
+					{
+						"name": "LZJ_P_T1",
+						"expression": "latest(timestamp, t1, LZ_pre, t1 + 100000)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "LZJ2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"LZJ_PX": "LZ_pre - LZJ_P_T1"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "LZJ_PX",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "LZJ3",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"settings": {
+					"HP": 7.2,
+					"MP": 6.5,
+					"LP": 6,
+					"HFH": 90,
+					"LFH": 60
+				},
+				"conditions": [
+					{
+						"condition": "instaneousFlow >= HFH",
+						"LZ_Target": "HP"
+					},
+					{
+						"condition": "instaneousFlow < HFH && instaneousFlow > LFH",
+						"LZ_Target": "MP"
+					},
+					{
+						"condition": "instaneousFlow <= LFH",
+						"LZ_Target": "LP"
+					},
+					{
+						"LZ_Target": "MP"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "LZ_Target",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "LZJ4",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"LZJ_P_Change": "LZ_pre - LZ_Target"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "LZJ_P_Change",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "LZJ5",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "冷渣机负压T2时间内与目标的压差",
+			"parameters": {
+				"timeWindowLength": 3000000,
+				"timeInterval": 2000,
+				"constantValues": {
+					"t2": 60000
+				},
+				"methods": [
+					{
+						"name": "LZJ_neg_sub",
+						"expression": "x=vlatest(timestamp, t2, LZJ_P_Change);vsum(x)/len(x)*t2/1000"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "LZJ6",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"settings": {
+					"a": 1,
+					"b": 1,
+					"c": 1
+				},
+				"conditions": [
+					{
+						"LZH_Current": "(LZHi + a * LZJ_PX + b * LZJ_P_Change + c * LZJ_neg_sub) / 2"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "LZH_Current",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "LZJ7",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"instanceId": "62E27A16-7478-40A2-BB02-3A71D533C1DD",
+				"version": "1.0",
+				"inputMapping": {
+					"LZ_fre": "precondition"
+				},
+				"inputExtraFields": {
+					"percentile": 5
+				},
+				"outputMapping": {
+					"value": "LZ_Fx"
+				}
+			}
+		},
+		{
+			"nodeId": "LZJ8",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"instanceId": "62E27A16-7478-40A2-BB02-3A71D533C1DD",
+				"version": "1.0",
+				"inputMapping": {
+					"LZ_fre": "precondition"
+				},
+				"inputExtraFields": {
+					"percentile": 95
+				},
+				"outputMapping": {
+					"value": "LZ_Fy"
+				}
+			}
+		},
+		{
+			"nodeId": "LZJ9",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "LZH_Current >= LZ_Fx && LZH_Current <= LZ_Fy",
+						"LZ_Fz": "LZH_Current"
+					},
+					{
+						"condition": "LZH_Current < LZ_Fx",
+						"LZ_Fz": "LZ_Fx"
+					},
+					{
+						"condition": "LZH_Current > LZ_Fy",
+						"LZ_Fz": "LZ_Fy"
+					},
+					{
+						"LZ_Fz": "LZH_Current"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "LZ_Fz",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "LZJ10",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"settings": {
+					"LZHL": 2
+				},
+				"conditions": [
+					{
+						"condition": "LZ_Fz <= LZHL",
+						"LZH": "0"
+					},
+					{
+						"LZH": "LZ_Fz"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "LZH",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "1",
+			"moduleId": "Output:File",
+			"parameters": {
+				"dataModelOutPath": "/opt/BI-engine/files/zj/target/test_hongdou_lengfengji_dataModel.json",
+				"dataOutPath": "/opt/BI-engine/files/zj/target/",
+				"extension": "csv",
+				"recordWriter": {
+					"writeHeader": true
+				}
+			}
+		}
+	]
+}

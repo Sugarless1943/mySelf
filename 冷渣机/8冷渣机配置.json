@@ -1,0 +1,51 @@
+[
+    {
+        "query":"select instaneousCoal as GM1 from CoalFeeder where uid='05fe9e67-a878-4f07-a49e-018a9b7ba098'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select instaneousCoal as GM2 from CoalFeeder where uid='f04dde5b-932c-4287-8c88-0b6840497570'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select instaneousCoal as GM3 from CoalFeeder where uid='528b68e2-b7d6-49f8-8ef9-9a4e47e3727d'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select pressure1, pressure2 from FluidWindRoom where uid='6d6279b6-f10c-43bf-a272-ee2e1d125b56'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+     {
+        "query":"select runFrequency1 from Motor where uid='f7de84c0-7507-4f54-8a40-6ffb12e11c47'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select runFrequency2 from Motor where uid='961ad4c6-7410-46e7-a69e-4f4a444f0aba'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select instaneousFlow from FlowMeter where uid='23d148d5-5a50-4afc-a5b3-4de69954185e'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+]
