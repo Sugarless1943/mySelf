@@ -22,7 +22,7 @@
 				"version": "1.0",
 				"inputMapping": {
 					"flueOutlet_pre": "flueOutlet_pre",
-					"flueOutlet_pre": "flueOutlet_pre",
+					"flueOutlet_temp": "flueOutlet_temp",
 					"FZ":"wind_mass",
 					"boiler_top_temp": "boiler_top_temp",
 					"boiler_neg_pre": "boiler_neg_pre"
