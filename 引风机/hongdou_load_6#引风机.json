@@ -18,7 +18,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
 				"remoteUrl": "http://10.0.0.204:8870/predict",
-				"instanceId": "0aa31611-2345-4644-969b-d9410f3ee12c",
+				"instanceId": "4bdc1787-0129-431a-953b-9a86b68cf134",
 				"version": "1.0",
 				"inputMapping": {
 					"flueOutlet_pre": "flueOutlet_pre",
@@ -38,7 +38,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
 				"remoteUrl": "http://10.0.0.204:8870/predict",
-				"instanceId": "0aa31611-2345-4644-969b-d9410f3ee12c",
+				"instanceId": "61b4968d-c803-4938-8c7b-743c532236cc",
 				"version": "1.0",
 				"inputMapping": {
 					"wind_1_pre": "wind_1_pre",
