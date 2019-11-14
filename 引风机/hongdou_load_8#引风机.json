@@ -14,67 +14,6 @@
 			}
 		},
 		{
-			"nodeId": "GLSJ",
-			"moduleId": "Toolkit:ConditionDerive",
-			"parameters": {
-				"conditions": [
-					{
-						"boiler_top_temp": "(topTemperature1 + topTemperature2) / 2",
-						"boiler_neg_pre": "(negPressure1 + negPressure2) / 2"
-					}
-				],
-				"derivedFields": [
-					{
-						"name": "boiler_top_temp",
-						"label": "",
-						"type": "DOUBLE",
-						"measure": "CONTINUOUS"
-					},
-					{
-						"name": "boiler_neg_pre",
-						"label": "",
-						"type": "DOUBLE",
-						"measure": "CONTINUOUS"
-					}
-				]
-			}
-		},
-		{
-			"nodeId": "GMGF0",
-			"moduleId": "Toolkit:Scoring",
-			"parameters": {
-				"remoteUrl": "http://10.0.0.204:8870/predict",
-				"instanceId": "eb78294f-2c95-4da7-a740-7a9f21dd2bde",
-				"version": "1.0",
-				"inputMapping": {
-					"FM": "steam"
-				},
-				"inputExtraFields": {},
-				"outputMapping": {
-					"value": "O2"
-				},
-				"defaultValue": null
-			}
-		},
-		{
-			"nodeId": "DCFL2",
-			"moduleId": "Toolkit:Scoring",
-			"parameters": {
-				"remoteUrl": "http://10.0.0.204:8870/predict",
-				"instanceId": "0b29f9e5-2089-4a1a-a931-feb111c69d1a",
-				"version": "1.0",
-				"inputMapping": {
-					"O2": "oxygen"
-				},
-				"inputExtraFields": {
-					"o2": 2
-				},
-				"outputMapping": {
-					"value": "LFL"
-				}
-			}
-		},
-		{
 			"nodeId": "YFJ0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
