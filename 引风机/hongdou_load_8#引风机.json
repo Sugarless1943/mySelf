@@ -18,6 +18,27 @@
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
 				"remoteUrl": "http://10.0.0.204:8870/predict",
+				"instanceId": "fdf8a05b-24b3-41ef-b827-ac6ce44a6c88",
+				"version": "1.0",
+				"inputMapping": {
+					"LFL": "wind_mass",
+					"boiler_top_temp": "boiler_top_temp",
+					"boiler_neg_pre": "boiler_neg_pre"
+				},
+				"inputExtraFields": {
+					"target_boiler_neg_pre": -150
+				},
+				"outputMapping": {
+					"value": "wind_pre"
+				},
+				"defaultValue": null
+			}
+		},
+		{
+			"nodeId": "YFJ1",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:8870/predict",
 				"instanceId": "27be4ca3-d971-4203-ae6d-2c89ffb60a8a",
 				"version": "1.0",
 				"inputMapping": {
@@ -34,7 +55,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ1",
+			"nodeId": "YFJ2",
 			"moduleId": "Toolkit:BufferAggregate",
 			"desc": "引风机当前时刻平均值",
 			"parameters": {
@@ -52,7 +73,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ2",
+			"nodeId": "YFJ3",
 			"moduleId": "Toolkit:BufferAggregate",
 			"desc": "引风机T1时刻平均值",
 			"parameters": {
@@ -70,7 +91,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ3",
+			"nodeId": "YFJ4",
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"conditions": [
@@ -89,7 +110,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ4",
+			"nodeId": "YFJ5",
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"settings": {
@@ -111,7 +132,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ5",
+			"nodeId": "YFJ6",
 			"moduleId": "Toolkit:BufferAggregate",
 			"desc": "引风机负压T2时间内与目标的压差",
 			"parameters": {
@@ -130,7 +151,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ6",
+			"nodeId": "YFJ7",
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"settings": {
@@ -154,7 +175,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ7",
+			"nodeId": "YFJ8",
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"conditions": [
@@ -173,7 +194,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ8",
+			"nodeId": "YFJ9",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
 				"remoteUrl": "http://10.0.0.204:8870/predict",
@@ -191,7 +212,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ9",
+			"nodeId": "YFJ10",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
 				"remoteUrl": "http://10.0.0.204:8870/predict",
@@ -209,7 +230,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ10",
+			"nodeId": "YFJ11",
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"conditions": [
@@ -240,7 +261,7 @@
 			}
 		},
 		{
-			"nodeId": "YFJ11",
+			"nodeId": "YFJ12",
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"settings": {
