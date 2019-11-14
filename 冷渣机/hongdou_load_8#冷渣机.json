@@ -18,7 +18,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
 				"remoteUrl": "http://10.0.0.204:14770/predict",
-				"instanceId": "b01df921-f561-11e9-9e7a-4cedfbbe0911",
+				"instanceId": "16bd10d3-f55d-11e9-99a0-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
 					"GM1": "M1201AML",
