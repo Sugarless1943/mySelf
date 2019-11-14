@@ -14,6 +14,58 @@
 			}
 		},
 		{
+			"nodeId": "GLSJ",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"boiler_top_temp": "(topTemperature1 + topTemperature2) / 2",
+						"boiler_neg_pre": "(negPressure1 + negPressure2) / 2"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "boiler_top_temp",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_neg_pre",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YDSJ",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"flueOutlet_pre": "(flueOutlet_pre1 + flueOutlet_pre2) / 2",
+						"flueOutlet_temp": "(flueOutlet_temp1 + flueOutlet_temp2) / 2"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "flueOutlet_pre",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "flueOutlet_temp",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
 			"nodeId": "YFJ0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
