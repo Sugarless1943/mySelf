@@ -1,0 +1,363 @@
+{
+	"globalConf": {
+		"engineName": "flink",
+		"name": "hongdou_load",
+		"flink.running.mode": "localui",
+		"flink.running.controller.ignore": true
+	},
+	"nodes": [
+		{
+			"nodeId": "0",
+			"moduleId": "Source:File",
+			"parameters": {
+				"path": "/opt/BI-engine/files/zj/source/test_hongdou_yinfengji.csv"
+			}
+		},
+		{
+			"nodeId": "GLSJ",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"boiler_top_temp": "(topTemperature1 + topTemperature2) / 2",
+						"boiler_neg_pre": "(negPressure1 + negPressure2) / 2"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "boiler_top_temp",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_neg_pre",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "GMGF0",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:8870/predict",
+				"instanceId": "02853196-5d2a-4009-9364-ba1e662d291f",
+				"version": "1.0",
+				"inputMapping": {
+					"FM": "steam"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "O2"
+				},
+				"defaultValue": null
+			}
+		},
+		{
+			"nodeId": "DCFL2",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:8870/predict",
+				"instanceId": "0b29f9e5-2089-4a1a-a931-feb111c69d1a",
+				"version": "1.0",
+				"inputMapping": {
+					"O2": "oxygen"
+				},
+				"inputExtraFields": {
+					"o2": 2
+				},
+				"outputMapping": {
+					"value": "LFL"
+				}
+			}
+		},
+		{
+			"nodeId": "YFJ0",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:8870/predict",
+				"instanceId": "eb72a50c-25f4-4e29-a02a-98dc3c7d44d0",
+				"version": "1.0",
+				"inputMapping": {
+					"LFL": "wind_mass",
+					"boiler_top_temp": "boiler_top_temp",
+					"boiler_neg_pre": "boiler_neg_pre"
+				},
+				"inputExtraFields": {
+					"target_boiler_neg_pre": -150
+				},
+				"outputMapping": {
+					"value": "wind_pre"
+				},
+				"defaultValue": null
+			}
+		},
+		{
+			"nodeId": "YFJ1",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:8870/predict",
+				"instanceId": "0aa31611-2345-4644-969b-d9410f3ee12c",
+				"version": "1.0",
+				"inputMapping": {
+					"wind_pre": "wind_pre",
+					"LFL": "wind_mass",
+					"boiler_top_temp": "boiler_top_temp",
+					"boiler_neg_pre": "boiler_neg_pre"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "YFHi"
+				},
+				"defaultValue": null
+			}
+		},
+		{
+			"nodeId": "YFJ2",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "引风机当前时刻平均值",
+			"parameters": {
+				"timeWindowLength": 40000,
+				"timeInterval": 2000,
+				"constantValues": {
+					"t1": 20000
+				},
+				"methods": [
+					{
+						"name": "YFJ_P_Current",
+						"expression": "x=vlatest(timestamp, t1, boiler_neg_pre);vsum(x)/len(x)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YFJ3",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "引风机T1时刻平均值",
+			"parameters": {
+				"timeWindowLength": 120000,
+				"timeInterval": 2000,
+				"constantValues": {
+					"t1": 60000
+				},
+				"methods": [
+					{
+						"name": "YFJ_P_T1",
+						"expression": "latest(timestamp, t1, YFJ_P_Current, t1 + 60000)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YFJ4",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"YFJ_PX": "YFJ_P_Current - YFJ_P_T1"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "YFJ_PX",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YFJ5",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"settings": {
+					"YF_PS1": -150
+				},
+				"conditions": [
+					{
+						"YFJ_P_Change": "YFJ_P_Current - YF_PS1"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "YFJ_P_Change",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YFJ6",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "引风机负压T2时间内与目标的压差",
+			"parameters": {
+				"timeWindowLength": 600000,
+				"timeInterval": 2000,
+				"constantValues": {
+					"t2": 60000,
+					"YF_PS1": -150
+				},
+				"methods": [
+					{
+						"name": "YFJ_neg_sub",
+						"expression": "x=vlatest(timestamp, t2, YFJ_P_Current);vsum(x-vrange(0,YF_PS1,YF_PS1,len(x)))/len(x)*t2/1000"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YFJ7",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"settings": {
+					"a": 1,
+					"b": 1,
+					"c": 1
+				},
+				"conditions": [
+					{
+						"YFH_Current": "(YFHi + a * YFJ_PX + b * YFJ_P_Change + c * YFJ_neg_sub) / 2"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "YFH_Current",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YFJ8",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"YFJ_FL": "YF1 + YF2 + YF3"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "YFJ_FL",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YFJ9",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:8870/predict",
+				"instanceId": "2CAF9BD6-3C47-44FE-9703-52BD427EAD47",
+				"version": "1.0",
+				"inputMapping": {
+					"YFJ_FL": "precondition"
+				},
+				"inputExtraFields": {
+					"percentile": 5
+				},
+				"outputMapping": {
+					"value": "YF_Fx"
+				}
+			}
+		},
+		{
+			"nodeId": "YFJ10",
+			"moduleId": "Toolkit:Scoring",
+			"parameters": {
+				"remoteUrl": "http://10.0.0.204:8870/predict",
+				"instanceId": "2CAF9BD6-3C47-44FE-9703-52BD427EAD47",
+				"version": "1.0",
+				"inputMapping": {
+					"YFJ_FL": "precondition"
+				},
+				"inputExtraFields": {
+					"percentile": 95
+				},
+				"outputMapping": {
+					"value": "YF_Fy"
+				}
+			}
+		},
+		{
+			"nodeId": "YFJ11",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "YFH_Current >= YF_Fx && YFH_Current <= YF_Fy",
+						"YF_Fz": "YFHe_Current"
+					},
+					{
+						"condition": "YFH_Current < YF_Fx",
+						"YF_Fz": "YF_Fx"
+					},
+					{
+						"condition": "YFH_Current > YF_Fy",
+						"YF_Fz": "YF_Fy"
+					},
+					{
+						"YF_Fz": "YFH_Current"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "YF_Fz",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YFJ12",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"settings": {
+					"KDmin": 20
+				},
+				"conditions": [
+					{
+						"condition": "YF_Fz <= KDmin",
+						"YFH": "KDmin"
+					},
+					{
+						"YFH": "YF_Fz"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "YFH",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "1",
+			"moduleId": "Output:File",
+			"parameters": {
+				"dataModelOutPath": "/opt/BI-engine/files/zj/target/test_hongdou_yinfengji_dataModel.json",
+				"dataOutPath": "/opt/BI-engine/files/zj/target/",
+				"extension": "csv",
+				"recordWriter": {
+					"writeHeader": true
+				}
+			}
+		}
+	]
+}

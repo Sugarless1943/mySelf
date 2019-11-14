@@ -1,0 +1,30 @@
+[
+    {
+        "query":"select negPressure1, negPressure2, topTemperature1, topTemperature2 from FluidBoilerBody where uid='bfeca85b-36fe-43d5-aa8c-ec957a1dd68a'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select temperature1 as flueOutlet_temp1, temperature2 as flueOutlet_temp2, pressure1 as flueOutlet_pre1, pressure2 as flueOutlet_pre2 from FluidBoilerBody where uid='38a0c5f8-7a36-4166-9c0b-3e918f3215b1'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+     {
+        "query":"select airFlow as left_wind_current from AirPipe where uid='ac7882d7-ff5b-4b21-af2e-b467f17a2422'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select airFlow as right_wind_current from AirPipe where uid='87611717-7f11-471a-906a-4bcd73292179'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    }
+]

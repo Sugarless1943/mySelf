@@ -1,0 +1,30 @@
+[
+    {
+        "query":"select negPressure1, negPressure2, topTemperature1, topTemperature2 from FluidBoilerBody where uid='06d7ec23-5719-4061-8ad8-3f0a6023efc4'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select airFlow as YF1 from AirPipe where uid='16906bae-29c3-4c7a-87e9-c34374705574'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select airFlow as YF2 from AirPipe where uid='fac5ac8d-d181-4a68-82f9-d81415a93ca5'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    },
+    {
+        "query":"select airFlow as YF3 from AirPipe where uid='ed70bfa0-d81c-4ccc-bf67-38cf8e2a00da'",
+        "arguments":{
+            "engine":"tsdb",
+            "converter":"STD_JSON"
+        }
+    }
+]
