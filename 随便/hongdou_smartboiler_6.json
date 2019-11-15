@@ -2800,7 +2800,7 @@
 			"nodeId": "GLCL0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "0518368a-3be9-4e97-8836-0c17f317b384",
 				"version": "1.0",
 				"inputMapping": {
@@ -2824,7 +2824,7 @@
 			"nodeId": "GMGF0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "5c9765c3-ec90-11e9-a61f-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -2847,7 +2847,7 @@
 			"nodeId": "GMGF1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "4c01f228-df40-11e9-80c0-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -2941,7 +2941,7 @@
 				"MLTJ": "MLTJ",
 				"outputField": "HD6_WCF_frequency",
 				"MRConfig": {
-					"url": "http://ml-predict-svc:9001/config/",
+					"url": "http://10.0.0.204:14770/config/",
 					"instanceId": "0518368a-3be9-4e97-8836-0c17f317b384",
 					"header": {
 						"Content-Type": "application/json"
@@ -3064,7 +3064,7 @@
 			"nodeId": "DCFL0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "9cb4b4f9-df5f-11e9-a6e9-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -3082,7 +3082,7 @@
 			"nodeId": "DCFL1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "01765E7A-554D-44AD-85B5-8E9DEE8F4278",
 				"version": "1.0",
 				"inputMapping": {
@@ -3100,7 +3100,7 @@
 			"nodeId": "DCFL2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "01765E7A-554D-44AD-85B5-8E9DEE8F4278",
 				"version": "1.0",
 				"inputMapping": {
@@ -3149,7 +3149,7 @@
 			"nodeId": "DCFL4",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "dbf9803a-de75-11e9-86bc-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -3426,6 +3426,32 @@
 			}
 		},
 		{
+			"nodeId": "GLSJ",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"boiler_top_temp": "(left_temperature + right_temperature) / 2",
+						"boiler_neg_pre": "(negPressure1 + negPressure2) / 2"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "boiler_top_temp",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_neg_pre",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
 			"nodeId": "YDSJ",
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
@@ -3556,7 +3582,7 @@
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"settings": {
-					"YF_PS1": 19
+					"YF_PS1": -150
 				},
 				"conditions": [
 					{
@@ -3582,7 +3608,7 @@
 				"timeInterval": 2000,
 				"constantValues": {
 					"t2": 60000,
-					"YF_PS1": 19
+					"YF_PS1": -150
 				},
 				"methods": [
 					{
@@ -3603,12 +3629,38 @@
 				},
 				"conditions": [
 					{
-						"YFH_Current": "(YFHi + a * YFJ_PX + b * YFJ_P_Change + c * YFJ_neg_sub) / 2"
+						"YFHe": "a * YFJ_PX + b * YFJ_P_Change + c * YFJ_neg_sub"
 					}
 				],
 				"derivedFields": [
 					{
-						"name": "YFH_Current",
+						"name": "YFHe",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "YFJ8",
+			"moduleId": "Toolkit:ConditionDerive",
+			"parameters": {
+				"conditions": [
+					{
+						"YFH_Current1": "YFHi1 + YFHe",
+						"YFH_Current2": "YFHi2 + YFHe"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "YFH_Current1",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "YFH_Current2",
 						"label": "",
 						"type": "DOUBLE",
 						"measure": "CONTINUOUS"
@@ -3621,20 +3673,23 @@
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"settings": {
-					"KDmin": 20
+					"YFLM": 20
 				},
 				"conditions": [
 					{
-						"condition": "YFH_Current <= KDmin",
-						"YFH": "KDmin"
-					},
-					{
-						"YFH": "YFH_Current"
+						"YFH1": "if(YFH_Current1 >= YFLM, YFH_Current1, YFLM)",
+						"YFH2": "if(YFH_Current2 >= YFLM, YFH_Current1, YFLM)"
 					}
 				],
 				"derivedFields": [
 					{
-						"name": "YFH",
+						"name": "YFH1",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "YFH2",
 						"label": "",
 						"type": "DOUBLE",
 						"measure": "CONTINUOUS"

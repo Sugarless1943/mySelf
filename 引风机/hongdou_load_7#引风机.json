@@ -161,7 +161,7 @@
 				},
 				"conditions": [
 					{
-						"YFH_Current": "(YFHi + a * YFJ_PX + b * YFJ_P_Change + c * YFJ_neg_sub) / 2"
+						"YFH_Current": "YFHi + a * YFJ_PX + b * YFJ_P_Change + c * YFJ_neg_sub"
 					}
 				],
 				"derivedFields": [

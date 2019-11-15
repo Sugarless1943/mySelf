@@ -46,7 +46,7 @@
 				"conditions": [
 					{
 						"flueOutlet_pre": "(flueOutlet_pre1 + flueOutlet_pre2) / 2",
-						"flueOutlet_temp": "(flueOutlet_temp1 + flueOutlet_temp2) / 2"
+						"flueOutlet_temp": "(fluePipe_temperature_left + fluePipe_temperature_right) / 2"
 					}
 				],
 				"derivedFields": [
@@ -69,18 +69,22 @@
 			"nodeId": "YFJ0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:8870/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "4bdc1787-0129-431a-953b-9a86b68cf134",
 				"version": "1.0",
 				"inputMapping": {
 					"flueOutlet_pre": "flueOutlet_pre",
 					"flueOutlet_temp": "flueOutlet_temp",
-					"FZ":"wind_mass",
+					"Fz": "wind_mass",
 					"boiler_top_temp": "boiler_top_temp",
 					"boiler_neg_pre": "boiler_neg_pre"
 				},
 				"inputExtraFields": {
 					"target_boiler_neg_pre": 19
+				},
+				"outputMapping": {
+					"wind_1_pre": "wind_1_pre",
+					"wind_2_pre": "wind_2_pre"
 				},
 				"defaultValue": null
 			}
@@ -89,19 +93,20 @@
 			"nodeId": "YFJ1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:8870/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "61b4968d-c803-4938-8c7b-743c532236cc",
 				"version": "1.0",
 				"inputMapping": {
 					"wind_1_pre": "wind_1_pre",
 					"wind_2_pre": "wind_2_pre",
-					"FZ":"wind_mass",
+					"Fz": "wind_mass",
 					"boiler_top_temp": "boiler_top_temp",
 					"boiler_neg_pre": "boiler_neg_pre"
 				},
 				"inputExtraFields": {},
 				"outputMapping": {
-					"value": "YFHi"
+					"wind_1_freq": "YFHi1",
+					"wind_2_freq": "YFHi2"
 				},
 				"defaultValue": null
 			}
@@ -213,7 +218,7 @@
 				},
 				"conditions": [
 					{
-						"YFH_Current": "(YFHi + a * YFJ_PX + b * YFJ_P_Change + c * YFJ_neg_sub) / 2"
+						"YFHe": "a * YFJ_PX + b * YFJ_P_Change + c * YFJ_neg_sub"
 					}
 				],
 				"derivedFields": [
@@ -232,79 +237,19 @@
 			"parameters": {
 				"conditions": [
 					{
-						"YFJ_FL": "left_wind_current+right_wind_current"
+						"YFH_Current1": "YFHi1 + YFHe",
+						"YFH_Current2": "YFHi2 + YFHe"
 					}
 				],
 				"derivedFields": [
 					{
-						"name": "YFJ_FL",
+						"name": "YFH_Current1",
 						"label": "",
 						"type": "DOUBLE",
 						"measure": "CONTINUOUS"
-					}
-				]
-			}
-		},
-		{
-			"nodeId": "YFJ9",
-			"moduleId": "Toolkit:Scoring",
-			"parameters": {
-				"remoteUrl": "http://10.0.0.204:8870/predict",
-				"instanceId": "858C18FE-70C5-4DB7-A550-A3DAF49A5F8D",
-				"version": "1.0",
-				"inputMapping": {
-					"YFJ_FL": "precondition"
-				},
-				"inputExtraFields": {
-					"percentile": 5
-				},
-				"outputMapping": {
-					"value": "YF_Fx"
-				}
-			}
-		},
-		{
-			"nodeId": "YFJ10",
-			"moduleId": "Toolkit:Scoring",
-			"parameters": {
-				"remoteUrl": "http://10.0.0.204:8870/predict",
-				"instanceId": "858C18FE-70C5-4DB7-A550-A3DAF49A5F8D",
-				"version": "1.0",
-				"inputMapping": {
-					"YFJ_FL": "precondition"
-				},
-				"inputExtraFields": {
-					"percentile": 95
-				},
-				"outputMapping": {
-					"value": "YF_Fy"
-				}
-			}
-		},
-		{
-			"nodeId": "YFJ11",
-			"moduleId": "Toolkit:ConditionDerive",
-			"parameters": {
-				"conditions": [
-					{
-						"condition": "YFH_Current >= YF_Fx && YFH_Current <= YF_Fy",
-						"YF_Fz": "YFHe_Current"
 					},
 					{
-						"condition": "YFH_Current < YF_Fx",
-						"YF_Fz": "YF_Fx"
-					},
-					{
-						"condition": "YFH_Current > YF_Fy",
-						"YF_Fz": "YF_Fy"
-					},
-					{
-						"YF_Fz": "YFH_Current"
-					}
-				],
-				"derivedFields": [
-					{
-						"name": "YF_Fz",
+						"name": "YFH_Current2",
 						"label": "",
 						"type": "DOUBLE",
 						"measure": "CONTINUOUS"
@@ -317,20 +262,23 @@
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"settings": {
-					"KDmin": 20
+					"YFLM": 20
 				},
 				"conditions": [
 					{
-						"condition": "YF_Fz <= KDmin",
-						"YFH": "KDmin"
-					},
-					{
-						"YFH": "YF_Fz"
+						"YFH1": "if(YFH_Current1 >= YFLM, YFH_Current1, YFLM)",
+						"YFH2": "if(YFH_Current2 >= YFLM, YFH_Current1, YFLM)"
 					}
 				],
 				"derivedFields": [
 					{
-						"name": "YFH",
+						"name": "YFH1",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "YFH2",
 						"label": "",
 						"type": "DOUBLE",
 						"measure": "CONTINUOUS"

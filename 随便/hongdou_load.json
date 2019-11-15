@@ -898,6 +898,26 @@
 						"desp": "6#锅炉系统_2#送风机频率"
 					},
 					{
+						"timeSeries": "FluidBoilerBody:bfeca85b-36fe-43d5-aa8c-ec957a1dd68a:negPressure1",
+						"label": "negPressure1",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidBoilerBody:bfeca85b-36fe-43d5-aa8c-ec957a1dd68a:negPressure2",
+						"label": "negPressure2",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluePipeSection:38a0c5f8-7a36-4166-9c0b-3e918f3215b1:pressure1",
+						"label": "flueOutlet_pre1",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluePipeSection:38a0c5f8-7a36-4166-9c0b-3e918f3215b1:pressure2",
+						"label": "flueOutlet_pre2",
+						"desp": ""
+					},
+					{
 						"timeSeries": "FlowMeter:ce54c731-d28c-40f6-b53a-a962d2dfbe85:instaneousFlow",
 						"label": "steam_7",
 						"desp": "7#锅炉系统_过热器出口蒸汽流量"
@@ -993,64 +1013,64 @@
 						"desp": "7#锅炉系统_过热器出口蒸汽流量"
 					},
 					{
-						"timeSeries": "AirPipe:50e1617d-6264-4ff5-93b2-fe5ab3fbd1c0:airFlow",
+						"timeSeries": "AirPipe:268dd4ac-dfff-40e2-91af-961678beb8ba:airFlow",
 						"label": "LHFLl1_7",
-						"desp": "8#锅炉系统_左旋风分离器返料风调节风门前风量"
+						"desp": "7#锅炉系统_左旋风分离器返料风调节风门前风量"
 					},
 					{
-						"timeSeries": "AirPipe:50e1617d-6264-4ff5-93b2-fe5ab3fbd1c0:pressure",
+						"timeSeries": "AirPipe:268dd4ac-dfff-40e2-91af-961678beb8ba:pressure",
 						"label": "LHYLl1_7",
-						"desp": "8#锅炉系统_左旋风分离器返料风调节风门前压力"
+						"desp": "7#锅炉系统_左旋风分离器返料风调节风门前压力"
 					},
 					{
-						"timeSeries": "AirPipe:f62dfbe9-2eb4-4b2d-90ae-76f8f21f231d:airFlow",
+						"timeSeries": "AirPipe:d2cd9bec-27c9-48ff-903c-7d43b9b6370d:airFlow",
 						"label": "LHFLl2_7",
-						"desp": "8#锅炉系统_左旋风分离器返料风调节风门中风量"
+						"desp": "7#锅炉系统_左旋风分离器返料风调节风门中风量"
 					},
 					{
-						"timeSeries": "AirPipe:f62dfbe9-2eb4-4b2d-90ae-76f8f21f231d:pressure",
+						"timeSeries": "AirPipe:d2cd9bec-27c9-48ff-903c-7d43b9b6370d:pressure",
 						"label": "LHYLl2_7",
-						"desp": "8#锅炉系统_左旋风分离器返料风调节风门中压力"
+						"desp": "7#锅炉系统_左旋风分离器返料风调节风门中压力"
 					},
 					{
-						"timeSeries": "AirPipe:306e59c0-55a4-42ac-a500-5393f41ce5e7:airFlow",
+						"timeSeries": "AirPipe:79446784-c85d-4319-8b43-976478d70266:airFlow",
 						"label": "LHFLl3_7",
-						"desp": "8#锅炉系统_左旋风分离器返料风调节风门后风量"
+						"desp": "7#锅炉系统_左旋风分离器返料风调节风门后风量"
 					},
 					{
-						"timeSeries": "AirPipe:306e59c0-55a4-42ac-a500-5393f41ce5e7:pressure",
+						"timeSeries": "AirPipe:79446784-c85d-4319-8b43-976478d70266:pressure",
 						"label": "LHYLl3_7",
-						"desp": "8#锅炉系统_左旋风分离器返料风调节风门后压力"
+						"desp": "7#锅炉系统_左旋风分离器返料风调节风门后压力"
 					},
 					{
-						"timeSeries": "AirPipe:c2f635aa-5b05-4807-9a82-ad0b913c3d31:airFlow",
+						"timeSeries": "AirPipe:f890a89c-c256-49d3-ae54-c31cecbd62c6:airFlow",
 						"label": "LHFLr1_7",
-						"desp": "8#锅炉系统_右旋风分离器返料风调节风门前风量"
+						"desp": "7#锅炉系统_右旋风分离器返料风调节风门前风量"
 					},
 					{
-						"timeSeries": "AirPipe:c2f635aa-5b05-4807-9a82-ad0b913c3d31:pressure",
+						"timeSeries": "AirPipe:f890a89c-c256-49d3-ae54-c31cecbd62c6:pressure",
 						"label": "LHYLr1_7",
-						"desp": "8#锅炉系统_右旋风分离器返料风调节风门前压力"
+						"desp": "7#锅炉系统_右旋风分离器返料风调节风门前压力"
 					},
 					{
-						"timeSeries": "AirPipe:cde0ae38-a1a7-4bdd-8af9-82d6d7489e86:airFlow",
+						"timeSeries": "AirPipe:ed7f21da-fcfd-4b7b-beee-5ce53f113d05:airFlow",
 						"label": "LHFLr2_7",
-						"desp": "8#锅炉系统_右旋风分离器返料风调节风门中风量"
+						"desp": "7#锅炉系统_右旋风分离器返料风调节风门中风量"
 					},
 					{
-						"timeSeries": "AirPipe:cde0ae38-a1a7-4bdd-8af9-82d6d7489e86:pressure",
+						"timeSeries": "AirPipe:ed7f21da-fcfd-4b7b-beee-5ce53f113d05:pressure",
 						"label": "LHYLr2_7",
-						"desp": "8#锅炉系统_右旋风分离器返料风调节风门中压力"
+						"desp": "7#锅炉系统_右旋风分离器返料风调节风门中压力"
 					},
 					{
-						"timeSeries": "AirPipe:045ec9e7-9fc7-4e71-b0e0-ce1ef64f4fcc:airFlow",
+						"timeSeries": "AirPipe:734df1cf-7347-4609-ab07-76ea068fc5b2:airFlow",
 						"label": "LHFLr3_7",
-						"desp": "8#锅炉系统_右旋风分离器返料风调节风门后风量"
+						"desp": "7#锅炉系统_右旋风分离器返料风调节风门后风量"
 					},
 					{
-						"timeSeries": "AirPipe:045ec9e7-9fc7-4e71-b0e0-ce1ef64f4fcc:pressure",
+						"timeSeries": "AirPipe:734df1cf-7347-4609-ab07-76ea068fc5b2:pressure",
 						"label": "LHYLr3_7",
-						"desp": "8#锅炉系统_右旋风分离器返料风调节风门后压力"
+						"desp": "7#锅炉系统_右旋风分离器返料风调节风门后压力"
 					},
 					{
 						"timeSeries": "AirPipe:16906bae-29c3-4c7a-87e9-c34374705574:temperature",
@@ -1075,7 +1095,7 @@
 					{
 						"timeSeries": "Thermometer:dcd0f959-7309-4e27-b3fa-08e56bcc2a13:temperature",
 						"label": "ECFJ_temp_7",
-						"desp": "7#锅炉系统_二次风机出口温度"
+						"desp": "8#锅炉系统_二次风机出口温度"
 					},
 					{
 						"timeSeries": "AirPipe:ed70bfa0-d81c-4ccc-bf67-38cf8e2a00da:airFlow",
@@ -1973,7 +1993,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "3号双减最大出口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "ef920422-e7ae-4178-9334-edc797e0c5b3",
 				"version": "1.0",
 				"inputMapping": {
@@ -2015,7 +2035,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "3号双减的开度和入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "a0332d55-af56-425c-977c-b1811d6ae5f4",
 				"version": "1.0",
 				"inputMapping": {
@@ -2203,7 +2223,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号双减减压阀开度计算出口流量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"265739f6-5129-42cd-9d0c-578381b774ea",
 				"version":"1.0",
 				"inputMapping":{
@@ -2227,7 +2247,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号双减减压阀开度计算出口流量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"0bbf7bf2-86c8-41ef-a7f4-a5f236488d22",
 				"version":"1.0",
 				"inputMapping":{
@@ -2251,7 +2271,7 @@
 			"moduleId":"Toolkit:Scoring",
 			"desc":"3号双减进气量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"a0332d55-af56-425c-977c-b1811d6ae5f4",
 				"version":"1.0",
 				"inputMapping":{
@@ -2326,7 +2346,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "4号双减减温水量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"a0332d55-af56-425c-977c-b1811d6ae5f4",
 				"version":"1.0",
 				"inputMapping":{
@@ -2370,7 +2390,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "6号双减减温水量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"db21f573-fbd1-48de-a436-b90925d64836",
 				"version":"1.0",
 				"inputMapping":{
@@ -2875,7 +2895,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "6号双减的开度和入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "3e5374e7-697d-4bbd-83ee-60709fde71ec",
 				"version": "1.0",
 				"inputMapping": {
@@ -2980,7 +3000,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号汽轮机最小进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "4c4962bb-dbc6-47d4-ae95-398f0fe85fcb",
 				"version": "1.0",
 				"inputMapping": {
@@ -3024,7 +3044,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号最小发电量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "3cd1d882-9c9d-4e64-8f05-4340f3e6f86e",
 				"version": "1.0",
 				"inputMapping": {
@@ -3047,7 +3067,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号汽轮机最小进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "20577ee6-dfc2-4f2f-b5a9-46e49eeb271a",
 				"version": "1.0",
 				"inputMapping": {
@@ -3091,7 +3111,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号最小发电量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "c7bce625-adc1-4176-bb05-7aad94ead9fd",
 				"version": "1.0",
 				"inputMapping": {
@@ -3134,7 +3154,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "4号汽轮机进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "a461d148-30ef-4952-b663-bccab948599c",
 				"version": "1.0",
 				"inputMapping": {
@@ -3157,7 +3177,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "4号汽轮机电负荷",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "a4bdf2f0-bde6-4314-adfb-793afe295ce9",
 				"version": "1.0",
 				"inputMapping": {
@@ -3310,7 +3330,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "3号汽轮机进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "c02d5dc6-9db8-4a44-8412-8085b7357c39",
 				"version": "1.0",
 				"inputMapping": {
@@ -3334,7 +3354,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号汽轮机进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "4c4962bb-dbc6-47d4-ae95-398f0fe85fcb",
 				"version": "1.0",
 				"inputMapping": {
@@ -3357,7 +3377,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号汽轮机进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "20577ee6-dfc2-4f2f-b5a9-46e49eeb271a",
 				"version": "1.0",
 				"inputMapping": {
@@ -3649,7 +3669,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "7号双减入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "bfeea325-0a09-40dd-94f9-7150f89c0db7",
 				"version": "1.0",
 				"inputMapping": {
@@ -3740,7 +3760,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号双减入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "de30c693-a289-423b-9449-cce5726a5c80",
 				"version": "1.0",
 				"inputMapping": {
@@ -3765,7 +3785,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号双减入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "23276e2f-f34c-4991-b559-9ae3959fcf12",
 				"version": "1.0",
 				"inputMapping": {
@@ -4048,7 +4068,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "计算3号汽轮机最小进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "c02d5dc6-9db8-4a44-8412-8085b7357c39",
 				"version": "1.0",
 				"inputMapping": {
@@ -4114,7 +4134,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号汽轮机发电量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "c7bce625-adc1-4176-bb05-7aad94ead9fd",
 				"version": "1.0",
 				"inputMapping": {
@@ -4137,7 +4157,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号汽轮机发电量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "3cd1d882-9c9d-4e64-8f05-4340f3e6f86e",
 				"version": "1.0",
 				"inputMapping": {
@@ -4160,7 +4180,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "3号汽轮机发电量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "211c9f9f-95bc-4034-8328-070d7a2f2cad",
 				"version": "1.0",
 				"inputMapping": {
@@ -4289,7 +4309,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "7号双减入口流量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "bfeea325-0a09-40dd-94f9-7150f89c0db7",
 				"version": "1.0",
 				"inputMapping": {
@@ -4380,7 +4400,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号双减入口流量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "de30c693-a289-423b-9449-cce5726a5c80",
 				"version": "1.0",
 				"inputMapping": {
@@ -4405,7 +4425,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号双减入口流量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "23276e2f-f34c-4991-b559-9ae3959fcf12",
 				"version": "1.0",
 				"inputMapping": {
@@ -4573,7 +4593,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "分配6，7，8号最优化负荷",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "DCB3E782-DB20-47A6-8C27-3B81F2E68F83",
 				"version": "1.0",
 				"inputMapping": {
