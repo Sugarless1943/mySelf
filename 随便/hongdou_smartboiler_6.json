@@ -3517,7 +3517,8 @@
 				},
 				"inputExtraFields": {},
 				"outputMapping": {
-					"value": "YFHi"
+					"wind_1_freq": "YFHi1",
+					"wind_2_freq": "YFHi2"
 				},
 				"defaultValue": null
 			}
