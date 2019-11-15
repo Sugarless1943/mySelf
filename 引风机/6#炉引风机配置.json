@@ -7,7 +7,7 @@
         }
     },
     {
-        "query":"select temperature1 as flueOutlet_temp1, temperature2 as flueOutlet_temp2, pressure1 as flueOutlet_pre1, pressure2 as flueOutlet_pre2 from FluidBoilerBody where uid='38a0c5f8-7a36-4166-9c0b-3e918f3215b1'",
+        "query":"select temperature1 as flueOutlet_temp1, temperature2 as flueOutlet_temp2, pressure1 as flueOutlet_pre1, pressure2 as flueOutlet_pre2 from FluePipeSection where uid='38a0c5f8-7a36-4166-9c0b-3e918f3215b1'",
         "arguments":{
             "engine":"tsdb",
             "converter":"STD_JSON"

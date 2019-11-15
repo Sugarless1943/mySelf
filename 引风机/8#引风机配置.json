@@ -7,13 +7,6 @@
         }
     },
     {
-        "query":"select pressure1 as wind_pre from FluePipeSection where uid='87964868-c9df-4f4e-8b2c-0aa2439823c3'",
-        "arguments":{
-            "engine":"tsdb",
-            "converter":"STD_JSON"
-        }
-    },
-    {
         "query":"select airFlow as YF1 from AirPipe where uid='400dc0f2-9f08-44c8-ab7f-7085b8705761'",
         "arguments":{
             "engine":"tsdb",
@@ -21,7 +14,7 @@
         }
     },
     {
-        "query":"select airFlow as YF2 from AirPipe where uid='31710a74-b0a9-4763-ac67-809f21f69a24 '",
+        "query":"select airFlow as YF2 from AirPipe where uid='31710a74-b0a9-4763-ac67-809f21f69a24'",
         "arguments":{
             "engine":"tsdb",
             "converter":"STD_JSON"

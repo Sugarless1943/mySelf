@@ -21,7 +21,7 @@
         }
     },
     {
-        "query":"select pressure1, pressure2 from FluidWindRoom where uid='6d6279b6-f10c-43bf-a272-ee2e1d125b56'",
+        "query":"select pressure1, pressure2 from FluidWindRoom where uid='7555bb9e-47ec-475c-95d5-80492ba78bd0'",
         "arguments":{
             "engine":"tsdb",
             "converter":"STD_JSON"
