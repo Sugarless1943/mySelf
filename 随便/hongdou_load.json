@@ -1,0 +1,4692 @@
+{
+	"globalConf": {
+		"engineName": "flink",
+		"name": "hongdou_load",
+		"flink.running.mode": "remote",
+		"flink.running.controller.ignore": false
+	},
+	"nodes": [
+		{
+			"nodeId": "0",
+			"moduleId": "Source:Amqp",
+			"parameters": {
+				"host": "rabbitmq-production",
+				"port": 5672,
+				"name": "hongdou_load",
+				"user": "iot",
+				"password": "allsmart@iot",
+				"vhost": "/iot",
+				"topic": ".iot.#.data"
+			}
+		},
+		{
+			"nodeId": "1",
+			"moduleId": "Toolkit:TimeSeriesExtractor",
+			"parameters": {
+				"windowSize": 8,
+				"windowSlide": 5,
+				"useStartTime": false,
+				"mapping": [
+					{
+						"timeSeries": "SteamFlowMeter:c7983fa7-8254-4d4d-a5b6-910a91a4642f:pressure",
+						"label": "Line7Pressure",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:c7983fa7-8254-4d4d-a5b6-910a91a4642f:instaneousFlow",
+						"label": "line7flow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:f6f7dca3-474b-478f-8390-0ddf30969210:inputPressure",
+						"label": "SJ3_input_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:f6f7dca3-474b-478f-8390-0ddf30969210:inputTemperature",
+						"label": "SJ3_input_temp",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:f6f7dca3-474b-478f-8390-0ddf30969210:outPressure",
+						"label": "SJ3_output_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:89efa5df-4d28-424a-9374-620a1d108824:pressure",
+						"label": "Line6Pressure",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:89efa5df-4d28-424a-9374-620a1d108824:instaneousFlow",
+						"label": "line6flow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:89efa5df-4d28-424a-9374-620a1d108824:temperature",
+						"label": "line6Temperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:f6a88b82-7074-418a-bc68-9af413a9a17e:pressure",
+						"label": "Line1Pressure",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:5cd6d281-4523-4036-aaa7-f3d11d426e63:pressure",
+						"label": "Line2Pressure",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:0cff7ecc-5a6f-4a6d-8be7-73b833226f78:pressure",
+						"label": "Line3Pressure",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:250348c3-49ff-4466-a8f3-ec040bdab401:pressure",
+						"label": "Line4Pressure",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:da4213e7-0ca5-4cff-9680-0d06893de312:pressure",
+						"label": "Line5Pressure",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:da4213e7-0ca5-4cff-9680-0d06893de312:temperature",
+						"label": "Line5Temperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:f6a88b82-7074-418a-bc68-9af413a9a17e:instaneousFlow",
+						"label": "line1flow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:5cd6d281-4523-4036-aaa7-f3d11d426e63:instaneousFlow",
+						"label": "line2flow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:0cff7ecc-5a6f-4a6d-8be7-73b833226f78:instaneousFlow",
+						"label": "line3flow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:250348c3-49ff-4466-a8f3-ec040bdab401:instaneousFlow",
+						"label": "line4flow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:da4213e7-0ca5-4cff-9680-0d06893de312:instaneousFlow",
+						"label": "line5flow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "ElectricityGenerator:52b63a4f-3406-43f3-8275-7e554835d07b:totalPower",
+						"label": "QLJ1_e",
+						"desp": ""
+					},
+					{
+						"timeSeries": "ElectricityGenerator:57ae0870-f16d-41b2-a1c1-b46be058bf6a:totalPower",
+						"label": "QLJ2_e",
+						"desp": ""
+					},
+					{
+						"timeSeries": "ElectricityGenerator:a4d2a5f4-5abb-4f4b-b73b-f2bc55ff7102:totalPower",
+						"label": "QLJ3_e",
+						"desp": ""
+					},
+					{
+						"timeSeries": "ElectricityGenerator:7cf7f66d-d56a-4723-9410-8084f2cb6e72:activePower",
+						"label": "QLJ4_e",
+						"desp": ""
+					},
+					{
+						"timeSeries": "ElectricityGenerator:d485bbce-a625-431b-b66c-62555f490610:activePower",
+						"label": "dianwang_e",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:ee167bd0-d8f5-4b3f-98fd-01ff69830af0:mainStreamPressure",
+						"label": "QLJ1_input_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:2670a3f2-98d2-4e85-a306-c3ea88a30e8d:mainStreamPressure",
+						"label": "QLJ2_input_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:f5ea911d-0f99-4258-81a8-1728c4453709:mainStreamPressure",
+						"label": "QLJ3_input_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:58ea16ed-f935-49ed-ab77-74ac85605745:inputPressure",
+						"label": "SJ2_input_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:58ea16ed-f935-49ed-ab77-74ac85605745:inputTemperature",
+						"label": "SJ2_input_temp",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:58ea16ed-f935-49ed-ab77-74ac85605745:outPressure",
+						"label": "SJ2_output_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:58ea16ed-f935-49ed-ab77-74ac85605745:outTemperature",
+						"label": "SJ2_output_temp",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:94f329e4-c550-4e5e-ae23-9d38e2cfe42b:inputPressure",
+						"label": "SJ7_input_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:94f329e4-c550-4e5e-ae23-9d38e2cfe42b:outPressure",
+						"label": "SJ7_output_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:94f329e4-c550-4e5e-ae23-9d38e2cfe42b:inputTemperature",
+						"label": "SJ7_input_temp",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:94f329e4-c550-4e5e-ae23-9d38e2cfe42b:outTemperature",
+						"label": "SJ7_output_temp",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FlowMeter:c71e3596-e3e0-431c-ac55-c1a81990a37d:instaneousFlow",
+						"label": "boiler6_Fn",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FlowMeter:ce54c731-d28c-40f6-b53a-a962d2dfbe85:instaneousFlow",
+						"label": "boiler7_Fn",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FlowMeter:23d148d5-5a50-4afc-a5b3-4de69954185e:instaneousFlow",
+						"label": "boiler8_Fn",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:2670a3f2-98d2-4e85-a306-c3ea88a30e8d:extractStreamTemperature",
+						"label": "HD_G2_ET_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:2670a3f2-98d2-4e85-a306-c3ea88a30e8d:extractStreamPressure",
+						"label": "HD_G2_ET_P",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:2670a3f2-98d2-4e85-a306-c3ea88a30e8d:mainStreamTemperature",
+						"label": "HD_G2_S_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:2670a3f2-98d2-4e85-a306-c3ea88a30e8d:mainStreamPressure",
+						"label": "HD_G2_S_P",
+						"desp": ""
+					},
+					{
+						"timeSeries": "BackPressureExtractionTurbine:efe32e0a-aac2-401b-8956-b28359b0701b:extractStreamTemperature",
+						"label": "HD_G4_ET_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "BackPressureExtractionTurbine:efe32e0a-aac2-401b-8956-b28359b0701b:extractStreamPressure",
+						"label": "HD_G4_ET_P",
+						"desp": ""
+					},
+					{
+						"timeSeries": "BackPressureExtractionTurbine:efe32e0a-aac2-401b-8956-b28359b0701b:exhaustStreamTemperature",
+						"label": "HD_G4_EH_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "BackPressureExtractionTurbine:efe32e0a-aac2-401b-8956-b28359b0701b:exhaustStreamPressure",
+						"label": "HD_G4_EH_P",
+						"desp": ""
+					},
+					{
+						"timeSeries": "BackPressureExtractionTurbine:efe32e0a-aac2-401b-8956-b28359b0701b:mainStreamTemperature",
+						"label": "HD_G4_S_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "BackPressureExtractionTurbine:efe32e0a-aac2-401b-8956-b28359b0701b:mainStreamPressure",
+						"label": "HD_G4_S_P",
+						"desp": ""
+					},
+					{
+						"timeSeries": "Thermometer:e78e51e4-6b4f-4514-be2b-34b70a852927:temperature",
+						"label": "HD_G4_EH_load_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:f5ea911d-0f99-4258-81a8-1728c4453709:extractStreamTemperature",
+						"label": "HD_G3_ET_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:f5ea911d-0f99-4258-81a8-1728c4453709:extractStreamPressure",
+						"label": "HD_G3_ET_P",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:f5ea911d-0f99-4258-81a8-1728c4453709:mainStreamTemperature",
+						"label": "HD_G3_S_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:f5ea911d-0f99-4258-81a8-1728c4453709:mainStreamPressure",
+						"label": "HD_G3_S_P",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:f6f7dca3-474b-478f-8390-0ddf30969210:outInstaneousFlow",
+						"label": "outInstaneousFlow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FlowMeter:7575b8df-160a-4325-8195-e67ccd680d5f:instaneousFlow",
+						"label": "boiler4_Fn",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FlowMeter:83e5dcbc-f4cc-49c3-a07e-42634d37178b:instaneousFlow",
+						"label": "chuyangqi_flow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:ea98952a-5e8a-476f-a846-df8e73cd03ca:pressureValveOpenning",
+						"label": "SJ1_p_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:ea98952a-5e8a-476f-a846-df8e73cd03ca:tempValveOpenning",
+						"label": "SJ1_t_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:ea98952a-5e8a-476f-a846-df8e73cd03ca:inputTemperature",
+						"label": "SJ1_input_t_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:58ea16ed-f935-49ed-ab77-74ac85605745:pressureValveOpenning",
+						"label": "SJ2_p_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:58ea16ed-f935-49ed-ab77-74ac85605745:tempValveOpenning",
+						"label": "SJ2_t_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:58ea16ed-f935-49ed-ab77-74ac85605745:inputTemperature",
+						"label": "SJ2_input_t_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:58ea16ed-f935-49ed-ab77-74ac85605745:outInstaneousFlow",
+						"label": "SJ2_outInstaneousFlow_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:f6f7dca3-474b-478f-8390-0ddf30969210:pressureValveOpenning",
+						"label": "SJ3_p_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:f6f7dca3-474b-478f-8390-0ddf30969210:tempValveOpenning",
+						"label": "SJ3_t_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:f6f7dca3-474b-478f-8390-0ddf30969210:inputTemperature",
+						"label": "SJ3_input_t_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:f6f7dca3-474b-478f-8390-0ddf30969210:outInstaneousFlow",
+						"label": "SJ3_outInstaneousFlow_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:e52a6897-8261-4772-aedb-9449fd8bc057:pressureValveOpenning",
+						"label": "SJ6_p_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:e52a6897-8261-4772-aedb-9449fd8bc057:tempValveOpenning",
+						"label": "SJ6_t_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:94f329e4-c550-4e5e-ae23-9d38e2cfe42b:pressureValveOpenning",
+						"label": "SJ7_p_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:94f329e4-c550-4e5e-ae23-9d38e2cfe42b:tempValveOpenning",
+						"label": "SJ7_t_open_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:94f329e4-c550-4e5e-ae23-9d38e2cfe42b:inputTemperature",
+						"label": "SJ7_input_t_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:94f329e4-c550-4e5e-ae23-9d38e2cfe42b:outInstaneousFlow",
+						"label": "SJ7_outInstaneousFlow_realtime",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:ee167bd0-d8f5-4b3f-98fd-01ff69830af0:mainStreamInsFlow",
+						"label": "QLJ1_mainStreamInsFlow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:ee167bd0-d8f5-4b3f-98fd-01ff69830af0:extractStreamInsFlow",
+						"label": "QLJ1_extractStreamInsFlow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:ee167bd0-d8f5-4b3f-98fd-01ff69830af0:mainStreamTemperature",
+						"label": "QLJ1_mainStreamTemperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:2670a3f2-98d2-4e85-a306-c3ea88a30e8d:mainStreamInsFlow",
+						"label": "QLJ2_mainStreamInsFlow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:2670a3f2-98d2-4e85-a306-c3ea88a30e8d:extractStreamInsFlow",
+						"label": "QLJ2_extractStreamInsFlow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:2670a3f2-98d2-4e85-a306-c3ea88a30e8d:mainStreamTemperature",
+						"label": "QLJ2_mainStreamTemperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:f5ea911d-0f99-4258-81a8-1728c4453709:mainStreamInsFlow",
+						"label": "QLJ3_mainStreamInsFlow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:f5ea911d-0f99-4258-81a8-1728c4453709:extractStreamInsFlow",
+						"label": "QLJ3_extractStreamInsFlow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:f5ea911d-0f99-4258-81a8-1728c4453709:mainStreamTemperature",
+						"label": "QLJ3_mainStreamTemperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:efe32e0a-aac2-401b-8956-b28359b0701b:mainStreamInsFlow",
+						"label": "QLJ4_mainStreamInsFlow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:efe32e0a-aac2-401b-8956-b28359b0701b:extractStreamInsFlow",
+						"label": "QLJ4_extractStreamInsFlow",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:efe32e0a-aac2-401b-8956-b28359b0701b:exhaustStreamInsFlow",
+						"label": "QLJ4_exhaustStreamInsFlow",
+						"desp": ""
+					},		
+					{
+						"timeSeries": "SteamFlowMeter:f6a88b82-7074-418a-bc68-9af413a9a17e:temperature",
+						"label": "line1temperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:5cd6d281-4523-4036-aaa7-f3d11d426e63:temperature",
+						"label": "line2temperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:0cff7ecc-5a6f-4a6d-8be7-73b833226f78:temperature",
+						"label": "line3temperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:250348c3-49ff-4466-a8f3-ec040bdab401:temperature",
+						"label": "line4temperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamFlowMeter:da4213e7-0ca5-4cff-9680-0d06893de312:temperature",
+						"label": "line5temperature",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:f6f7dca3-474b-478f-8390-0ddf30969210:outTemperature",
+						"label": "SJ3_output_t",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:e52a6897-8261-4772-aedb-9449fd8bc057:outTemperature",
+						"label": "SJ6_output_temp",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:e52a6897-8261-4772-aedb-9449fd8bc057:outPressure",
+						"label": "SJ6_output_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:2670a3f2-98d2-4e85-a306-c3ea88a30e8d:mainStreamPressure",
+						"label": "SJ6_input_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:e52a6897-8261-4772-aedb-9449fd8bc057:inputTemperature",
+						"label": "SJ6_input_temp",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:ee167bd0-d8f5-4b3f-98fd-01ff69830af0:extractStreamTemperature",
+						"label": "HD_G1_ET_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:ee167bd0-d8f5-4b3f-98fd-01ff69830af0:extractStreamPressure",
+						"label": "HD_G1_ET_P",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:ee167bd0-d8f5-4b3f-98fd-01ff69830af0:mainStreamTemperature",
+						"label": "HD_G1_S_T",
+						"desp": ""
+					},
+					{
+						"timeSeries": "CondensingExtractionTurbine:ee167bd0-d8f5-4b3f-98fd-01ff69830af0:mainStreamPressure",
+						"label": "HD_G1_S_P",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:ea98952a-5e8a-476f-a846-df8e73cd03ca:inputPressure",
+						"label": "SJ1_input_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:ea98952a-5e8a-476f-a846-df8e73cd03ca:inputTemperature",
+						"label": "SJ1_input_temp",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:ea98952a-5e8a-476f-a846-df8e73cd03ca:outPressure",
+						"label": "SJ1_output_p",
+						"desp": ""
+					},
+					{
+						"timeSeries": "SteamConvertingUnit:ea98952a-5e8a-476f-a846-df8e73cd03ca:outTemperature",
+						"label": "SJ1_output_temp",
+						"desp": ""
+					},
+					{
+						"timeSeries": "AirPipe:f0061e0c-b39f-4583-a535-722ab6ead5c4:airFlow",
+						"label": "wind1_f1",
+						"desp": "6#锅炉系统_1#上层一次风风管"
+					},
+					{
+						"timeSeries": "AirPipe:ea18f0be-f4b0-4742-a87c-e892692d7c2e:airFlow",
+						"label": "wind1_f2",
+						"desp": "6#锅炉系统_1#下层一次风风管"
+					},
+					{
+						"timeSeries": "AirPipe:3c8df191-ee3f-4abd-88a3-d19b8fda55ff:airFlow",
+						"label": "wind1_f3",
+						"desp": "6#锅炉系统_2#上层一次风风管"
+					},
+					{
+						"timeSeries": "AirPipe:4dcb5f5a-6a77-4396-a436-b130672aeee6:airFlow",
+						"label": "wind1_f4",
+						"desp": "6#锅炉系统_2#下层一次风风管"
+					},
+					{
+						"timeSeries": "AirPipe:4152796f-450e-4d6f-a59a-6cff94b3bd3f:airFlow",
+						"label": "wind1_f5",
+						"desp": "6#锅炉系统_3#上层一次风风管"
+					},
+					{
+						"timeSeries": "AirPipe:1f3f2d87-436a-4c24-9ffd-1ab17153ada3:airFlow",
+						"label": "wind1_f6",
+						"desp": "6#锅炉系统_3#下层一次风风管"
+					},
+					{
+						"timeSeries": "AirPipe:6c33af07-091c-4ba2-a2f8-920b62b163e2:airFlow",
+						"label": "wind1_f7",
+						"desp": "6#锅炉系统_4#上层一次风风管"
+					},
+					{
+						"timeSeries": "AirPipe:b5096ff7-476a-414e-94da-a32e0fa246e9:airFlow",
+						"label": "wind1_f8",
+						"desp": "6#锅炉系统_4#下层一次风风管"
+					},
+					{
+						"timeSeries": "WheelCoalFan:4957888a-da0d-4300-9527-cd1dffa3d60e:runFrequency",
+						"label": "HD6_WCF1_F",
+						"desp": "6#锅炉系统_1角上给粉机频率"
+					},
+					{
+						"timeSeries": "WheelCoalFan:4833b69d-cfbf-47cf-b407-b79b1059843c:runFrequency",
+						"label": "HD6_WCF2_F",
+						"desp": "6#锅炉系统_1角下给粉机频率"
+					},
+					{
+						"timeSeries": "WheelCoalFan:64f0d4d3-de2f-4a1f-b2cd-45570f96be0e:runFrequency",
+						"label": "HD6_WCF3_F",
+						"desp": "6#锅炉系统_2角上给粉机频率"
+					},
+					{
+						"timeSeries": "WheelCoalFan:8753e2e0-a8ab-40a2-80bc-02b2d0f9f5c9:runFrequency",
+						"label": "HD6_WCF4_F",
+						"desp": "6#锅炉系统_2角下给粉机频率"
+					},
+					{
+						"timeSeries": "WheelCoalFan:1ac3e90e-a713-4876-9507-030ae61534d0:runFrequency",
+						"label": "HD6_WCF5_F",
+						"desp": "6#锅炉系统_3角上给粉机频率"
+					},
+					{
+						"timeSeries": "WheelCoalFan:22c0e5fd-1961-489a-9ace-1601f396e24d:runFrequency",
+						"label": "HD6_WCF6_F",
+						"desp": "6#锅炉系统_3角下给粉机频率"
+					},
+					{
+						"timeSeries": "WheelCoalFan:806e3431-099d-437c-bf1e-7abffd031fd5:runFrequency",
+						"label": "HD6_WCF7_F",
+						"desp": "6#锅炉系统_4角上给粉机频率"
+					},
+					{
+						"timeSeries": "WheelCoalFan:98f8431c-b15e-4d11-b521-426a47a63da7:runFrequency",
+						"label": "HD6_WCF8_F",
+						"desp": "6#锅炉系统_4角下给粉机频率"
+					},
+					{
+						"timeSeries": "AirPipe:91d78e2d-d449-4f56-9b94-4cf3fd9760b6:airFlow",
+						"label": "14FT016",
+						"desp": ""
+					},
+					{
+						"timeSeries": "AirPipe:91d78e2d-d449-4f56-9b94-4cf3fd9760b6:pressure",
+						"label": "14PT016",
+						"desp": "6#锅炉系统_1#磨煤机风管风量"
+					},
+					{
+						"timeSeries": "AirPipe:91d78e2d-d449-4f56-9b94-4cf3fd9760b6:temperature",
+						"label": "14TE016",
+						"desp": "6#锅炉系统_1#磨煤机风管温度"
+					},
+					{
+						"timeSeries": "AirPipe:ce71d26d-4830-4270-8c8a-e5fe44b23443:airFlow",
+						"label": "14FT026",
+						"desp": "6#锅炉系统_2#磨煤机风管风量"
+					},
+					{
+						"timeSeries": "AirPipe:ce71d26d-4830-4270-8c8a-e5fe44b23443:pressure",
+						"label": "14PT026",
+						"desp": "6#锅炉系统_2#磨煤机风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:ce71d26d-4830-4270-8c8a-e5fe44b23443:temperature",
+						"label": "14TE026",
+						"desp": "6#锅炉系统_2#磨煤机风管温度"
+					},
+					{
+						"timeSeries": "BoilerBody:bfeca85b-36fe-43d5-aa8c-ec957a1dd68a:topTemperature1",
+						"label": "left_temperature",
+						"desp": "6#锅炉系统_锅炉本体左温度"
+					},
+					{
+						"timeSeries": "BoilerBody:bfeca85b-36fe-43d5-aa8c-ec957a1dd68a:topTemperature2",
+						"label": "right_temperature",
+						"desp": "6#锅炉系统_锅炉本体右温度"
+					},
+					{
+						"timeSeries": "FlowMeter:c71e3596-e3e0-431c-ac55-c1a81990a37d:instaneousFlow",
+						"label": "instaneousFlow",
+						"desp": "6#锅炉系统_主蒸汽母管流量"
+					},
+					{
+						"timeSeries": "AirPipe:0d8452ad-c631-4f47-b803-938d45780285:temperature",
+						"label": "13TE096",
+						"desp": "6#锅炉系统_风管1温度"
+					},
+					{
+						"timeSeries": "AirPipe:c12da767-00f5-48eb-9776-dabf98e94a26:temperature",
+						"label": "13TE106",
+						"desp": "6#锅炉系统_风管2温度"
+					},
+					{
+						"timeSeries": "AirFan:b07e3517-6152-4903-adff-942769a3aa47:pressure",
+						"label": "13PT016",
+						"desp": "6#锅炉系统_2#送风机压力"
+					},
+					{
+						"timeSeries": "AirFan:224b00f6-7d3f-468b-ae6e-219f7767134b:pressure",
+						"label": "13PT026",
+						"desp": "6#锅炉系统_1#送风机压力"
+					},
+					{
+						"timeSeries": "AirPipe:e864b498-a1e0-4be7-aabe-97e3f093735f:temperature",
+						"label": "13TE286",
+						"desp": "6#锅炉系统_空预器出口风管温度"
+					},
+					{
+						"timeSeries": "AirPipe:7f871789-5c79-46f1-bc34-0bb884c130dc:pressure",
+						"label": "wind1l_p1",
+						"desp": "6#锅炉系统_左侧一次冷风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:7f871789-5c79-46f1-bc34-0bb884c130dc:airFlow",
+						"label": "wind1l_f1",
+						"desp": "6#锅炉系统_左侧一次冷风风管风量"
+					},
+					{
+						"timeSeries": "AirPipe:f34ec924-2f58-47b7-b15d-b19e175405cf:pressure",
+						"label": "wind1l_p2",
+						"desp": "6#锅炉系统_右侧一次冷风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:f34ec924-2f58-47b7-b15d-b19e175405cf:airFlow",
+						"label": "wind1l_f2",
+						"desp": "6#锅炉系统_右侧一次冷风风管风量"
+					},
+					{
+						"timeSeries": "AirPipe:f0061e0c-b39f-4583-a535-722ab6ead5c4:pressure",
+						"label": "13PdT016",
+						"desp": "6#锅炉系统_1#上层一次风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:ea18f0be-f4b0-4742-a87c-e892692d7c2e:pressure",
+						"label": "13PdT026",
+						"desp": "6#锅炉系统_1#下层一次风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:3c8df191-ee3f-4abd-88a3-d19b8fda55ff:pressure",
+						"label": "13PdT036",
+						"desp": "6#锅炉系统_2#上层一次风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:4dcb5f5a-6a77-4396-a436-b130672aeee6:pressure",
+						"label": "13PdT046",
+						"desp": "6#锅炉系统_2#下层一次风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:4152796f-450e-4d6f-a59a-6cff94b3bd3f:pressure",
+						"label": "13PdT056",
+						"desp": "6#锅炉系统_3#上层一次风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:1f3f2d87-436a-4c24-9ffd-1ab17153ada3:pressure",
+						"label": "13PdT066",
+						"desp": "6#锅炉系统_3#下层一次风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:6c33af07-091c-4ba2-a2f8-920b62b163e2:pressure",
+						"label": "13PdT076",
+						"desp": "6#锅炉系统_4#上层一次风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:b5096ff7-476a-414e-94da-a32e0fa246e9:pressure",
+						"label": "13PdT086",
+						"desp": "6#锅炉系统_4#下层一次风风管压力"
+					},
+					{
+						"timeSeries": "AirPipe:f0061e0c-b39f-4583-a535-722ab6ead5c4:temperature",
+						"label": "13TE016",
+						"desp": "6#锅炉系统_1#上层一次风风管温度"
+					},
+					{
+						"timeSeries": "AirPipe:ea18f0be-f4b0-4742-a87c-e892692d7c2e:temperature",
+						"label": "13TE026",
+						"desp": "6#锅炉系统_1#下层一次风风管温度"
+					},
+					{
+						"timeSeries": "AirPipe:3c8df191-ee3f-4abd-88a3-d19b8fda55ff:temperature",
+						"label": "13TE036",
+						"desp": "6#锅炉系统_2#上层一次风风管温度"
+					},
+					{
+						"timeSeries": "AirPipe:4dcb5f5a-6a77-4396-a436-b130672aeee6:temperature",
+						"label": "13TE046",
+						"desp": "6#锅炉系统_2#下层一次风风管温度"
+					},
+					{
+						"timeSeries": "AirPipe:4152796f-450e-4d6f-a59a-6cff94b3bd3f:temperature",
+						"label": "13TE056",
+						"desp": "6#锅炉系统_3#上层一次风风管温度"
+					},
+					{
+						"timeSeries": "AirPipe:1f3f2d87-436a-4c24-9ffd-1ab17153ada3:temperature",
+						"label": "13TE066",
+						"desp": "6#锅炉系统_3#下层一次风风管温度"
+					},
+					{
+						"timeSeries": "AirPipe:6c33af07-091c-4ba2-a2f8-920b62b163e2:temperature",
+						"label": "13TE076",
+						"desp": "6#锅炉系统_4#上层一次风风管温度"
+					},
+					{
+						"timeSeries": "AirPipe:b5096ff7-476a-414e-94da-a32e0fa246e9:temperature",
+						"label": "13TE086",
+						"desp": "6#锅炉系统_4#下层一次风风管温度"
+					},
+					{
+						"timeSeries": "AjustValve:727d1246-07f7-4a27-9c01-639b5d5a50e1:runOpenning",
+						"label": "ajustValve1_top_opening",
+						"desp": "6#锅炉系统_1角烧嘴上二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:bfd8eb43-966d-4846-bf0f-600bcca5f5f5:runOpenning",
+						"label": "ajustValve1_middle_opening",
+						"desp": "6#锅炉系统_1角烧嘴中二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:414ae787-bfb4-4e42-b3dd-4cc2d4e831df:runOpenning",
+						"label": "ajustValve1_bottom_opening",
+						"desp": "6#锅炉系统_1角烧嘴下二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:449dbdb2-53fb-4f06-898c-42317465d284:runOpenning",
+						"label": "ajustValve2_top_opening",
+						"desp": "6#锅炉系统_2角烧嘴上二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:200f306b-41b2-48f2-bec3-76e47a74ac3a:runOpenning",
+						"label": "ajustValve2_middle_opening",
+						"desp": "6#锅炉系统_2角烧嘴中二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:4c9b6734-701a-41c9-a1e6-75a4ed577983:runOpenning",
+						"label": "ajustValve2_bottom_opening",
+						"desp": "6#锅炉系统_2角烧嘴下二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:3562affd-6afd-4a3b-9067-1cb9fa7381fc:runOpenning",
+						"label": "ajustValve3_top_opening",
+						"desp": "6#锅炉系统_3角烧嘴上二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:695eef12-d346-4a50-8771-025c2be3baa7:runOpenning",
+						"label": "ajustValve3_middle_opening",
+						"desp": "6#锅炉系统_3角烧嘴中二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:46d0130d-7b00-4949-b75e-4b1f584fe8e3:runOpenning",
+						"label": "ajustValve3_bottom_opening",
+						"desp": "6#锅炉系统_3角烧嘴下二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:a8adf517-f83f-48ed-a0d6-2005a160bb9d:runOpenning",
+						"label": "ajustValve4_top_opening",
+						"desp": "6#锅炉系统_4角烧嘴上二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:b516a5fe-2f63-4df7-9e4f-c9fb8828a482:runOpenning",
+						"label": "ajustValve4_middle_opening",
+						"desp": "6#锅炉系统_4角烧嘴中二次风门开度"
+					},
+					{
+						"timeSeries": "AjustValve:e3edbaaa-6b92-4429-9c28-e4ad2e5aca96:runOpenning",
+						"label": "ajustValve4_bottom_opening",
+						"desp": "6#锅炉系统_4角烧嘴下二次风门开度"
+					},
+					{
+						"timeSeries": "FluePipeSection:38a0c5f8-7a36-4166-9c0b-3e918f3215b1:temperature1",
+						"label": "fluePipe_temperature_left",
+						"desp": "6#锅炉系统_烟道截面出口左温度"
+					},
+					{
+						"timeSeries": "FluePipeSection:38a0c5f8-7a36-4166-9c0b-3e918f3215b1:temperature2",
+						"label": "fluePipe_temperature_right",
+						"desp": "6#锅炉系统_烟道截面出口右温度"
+					},
+					{
+						"timeSeries": "AirFan:224b00f6-7d3f-468b-ae6e-219f7767134b:runFrequency",
+						"label": "airfan_f1",
+						"desp": "6#锅炉系统_1#送风机频率"
+					},
+					{
+						"timeSeries": "AirFan:b07e3517-6152-4903-adff-942769a3aa47:runFrequency",
+						"label": "airfan_f2",
+						"desp": "6#锅炉系统_2#送风机频率"
+					},
+					{
+						"timeSeries": "AirPipe:vac7882d7-ff5b-4b21-af2e-b467f17a2422:airFlow",
+						"label": "wind_current",
+						"desp": "6#锅炉系统_虚拟总送风量"
+					},
+					{
+						"timeSeries": "AirPipe:ac7882d7-ff5b-4b21-af2e-b467f17a2422:airFlow",
+						"label": "left_wind_current",
+						"desp": "6#锅炉系统_2#送风机入口风管风量"
+					},
+					{
+						"timeSeries": "AirPipe:87611717-7f11-471a-906a-4bcd73292179:airFlow",
+						"label": "right_wind_current",
+						"desp": "6#锅炉系统_1#送风机入口风管风量"
+					},
+					{
+						"timeSeries": "AirFan:224b00f6-7d3f-468b-ae6e-219f7767134b:runFrequency",
+						"label": "airFan_1_runFrequency",
+						"desp": "6#锅炉系统_1#送风机频率"
+					},
+					{
+						"timeSeries": "AirFan:b07e3517-6152-4903-adff-942769a3aa47:runFrequency",
+						"label": "airFan_2_runFrequency",
+						"desp": "6#锅炉系统_2#送风机频率"
+					},
+					{
+						"timeSeries": "FlowMeter:ce54c731-d28c-40f6-b53a-a962d2dfbe85:instaneousFlow",
+						"label": "steam_7",
+						"desp": "7#锅炉系统_过热器出口蒸汽流量"
+					},
+					{
+						"timeSeries": "FluePipeSection:6c820783-07c7-4da1-ae71-a9b815b72cbf:oxygenContent1",
+						"label": "AT1130A",
+						"desp": "7#锅炉系统_低温过热器出口烟气氧含量左"
+					},
+					{
+						"timeSeries": "FluePipeSection:6c820783-07c7-4da1-ae71-a9b815b72cbf:oxygenContent2",
+						"label": "AT1130B",
+						"desp": "7#锅炉系统_低温过热器出口烟气氧含量右"
+					},
+					{
+						"timeSeries": "FluidBoilerBody:06d7ec23-5719-4061-8ad8-3f0a6023efc4:bedTopTemperature1",
+						"label": "TE1122A",
+						"desp": "7#锅炉系统_锅炉本体料层顶部温度左"
+					},
+					{
+						"timeSeries": "FluidBoilerBody:06d7ec23-5719-4061-8ad8-3f0a6023efc4:bedTopTemperature2",
+						"label": "TE1122C",
+						"desp": "7#锅炉系统_锅炉本体料层顶部温度右"
+					},
+					{
+						"timeSeries": "CoalFeeder:579d2d95-68cd-4167-a317-f2fc581b2d13:instaneousCoal",
+						"label": "GM1_7",
+						"desp": "7#锅炉系统_1#给煤机瞬时给煤量"
+					},
+					{
+						"timeSeries": "CoalFeeder:579d2d95-68cd-4167-a317-f2fc581b2d13:runState",
+						"label": "GM1KG_7",
+						"desp": "7#锅炉系统_1#给煤机运行状态"
+					},
+					{
+						"timeSeries": "CoalFeeder:579d2d95-68cd-4167-a317-f2fc581b2d13:runFrequency",
+						"label": "GMKD1_SRC_7",
+						"desp": "7#锅炉系统_1#给煤机运行频率"
+					},
+					{
+						"timeSeries": "CoalFeeder:bee2a347-21af-4b23-9a3e-21700e4c3892:instaneousCoal",
+						"label": "GM2_7",
+						"desp": "7#锅炉系统_2#给煤机瞬时给煤量"
+					},
+					{
+						"timeSeries": "CoalFeeder:bee2a347-21af-4b23-9a3e-21700e4c3892:runState",
+						"label": "GM2KG_7",
+						"desp": "7#锅炉系统_2#给煤机运行状态"
+					},
+					{
+						"timeSeries": "CoalFeeder:bee2a347-21af-4b23-9a3e-21700e4c3892:runFrequency",
+						"label": "GMKD2_SRC_7",
+						"desp": "7#锅炉系统_2#给煤机运行频率"
+					},
+					{
+						"timeSeries": "CoalFeeder:56152d00-e9dd-4606-8c0a-81ed2edcd021:instaneousCoal",
+						"label": "GM3_7",
+						"desp": "7#锅炉系统_3#给煤机瞬时给煤量"
+					},
+					{
+						"timeSeries": "CoalFeeder:56152d00-e9dd-4606-8c0a-81ed2edcd021:runState",
+						"label": "GM3KG_7",
+						"desp": "7#锅炉系统_3#给煤机运行状态"
+					},
+					{
+						"timeSeries": "CoalFeeder:56152d00-e9dd-4606-8c0a-81ed2edcd021:runFrequency",
+						"label": "GMKD3_SRC_7",
+						"desp": "7#锅炉系统_3#给煤机运行频率"
+					},
+					{
+						"timeSeries": "AirFan:7e50bfd4-7545-44d1-a9dc-23ce7d1e9c47:pressure",
+						"label": "pressure1_7",
+						"desp": "7#锅炉系统_一次风机压力"
+					},
+					{
+						"timeSeries": "AirFan:7e50bfd4-7545-44d1-a9dc-23ce7d1e9c47:airDoor",
+						"label": "YCFJ_SRC_7",
+						"desp": "7#锅炉系统_一次风机风门"
+					},
+					{
+						"timeSeries": "AirFan:b084a8ca-6aac-4f48-aaef-43dddc44b57a:pressure",
+						"label": "pressure2_7",
+						"desp": "7#锅炉系统_二次风机压力"
+					},
+					{
+						"timeSeries": "AirFan:b084a8ca-6aac-4f48-aaef-43dddc44b57a:runFrequency",
+						"label": "ECFJ_SRC_7",
+						"desp": "7#锅炉系统_二次风机风门"
+					},
+					{
+						"timeSeries": "FlowMeter:ce54c731-d28c-40f6-b53a-a962d2dfbe85:instaneousFlow",
+						"label": "PVf_7",
+						"desp": "7#锅炉系统_过热器出口蒸汽流量"
+					},
+					{
+						"timeSeries": "AirPipe:50e1617d-6264-4ff5-93b2-fe5ab3fbd1c0:airFlow",
+						"label": "LHFLl1_7",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门前风量"
+					},
+					{
+						"timeSeries": "AirPipe:50e1617d-6264-4ff5-93b2-fe5ab3fbd1c0:pressure",
+						"label": "LHYLl1_7",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门前压力"
+					},
+					{
+						"timeSeries": "AirPipe:f62dfbe9-2eb4-4b2d-90ae-76f8f21f231d:airFlow",
+						"label": "LHFLl2_7",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门中风量"
+					},
+					{
+						"timeSeries": "AirPipe:f62dfbe9-2eb4-4b2d-90ae-76f8f21f231d:pressure",
+						"label": "LHYLl2_7",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门中压力"
+					},
+					{
+						"timeSeries": "AirPipe:306e59c0-55a4-42ac-a500-5393f41ce5e7:airFlow",
+						"label": "LHFLl3_7",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门后风量"
+					},
+					{
+						"timeSeries": "AirPipe:306e59c0-55a4-42ac-a500-5393f41ce5e7:pressure",
+						"label": "LHYLl3_7",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门后压力"
+					},
+					{
+						"timeSeries": "AirPipe:c2f635aa-5b05-4807-9a82-ad0b913c3d31:airFlow",
+						"label": "LHFLr1_7",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门前风量"
+					},
+					{
+						"timeSeries": "AirPipe:c2f635aa-5b05-4807-9a82-ad0b913c3d31:pressure",
+						"label": "LHYLr1_7",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门前压力"
+					},
+					{
+						"timeSeries": "AirPipe:cde0ae38-a1a7-4bdd-8af9-82d6d7489e86:airFlow",
+						"label": "LHFLr2_7",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门中风量"
+					},
+					{
+						"timeSeries": "AirPipe:cde0ae38-a1a7-4bdd-8af9-82d6d7489e86:pressure",
+						"label": "LHYLr2_7",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门中压力"
+					},
+					{
+						"timeSeries": "AirPipe:045ec9e7-9fc7-4e71-b0e0-ce1ef64f4fcc:airFlow",
+						"label": "LHFLr3_7",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门后风量"
+					},
+					{
+						"timeSeries": "AirPipe:045ec9e7-9fc7-4e71-b0e0-ce1ef64f4fcc:pressure",
+						"label": "LHYLr3_7",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门后压力"
+					},
+					{
+						"timeSeries": "AirPipe:16906bae-29c3-4c7a-87e9-c34374705574:temperature",
+						"label": "wind11_temp_7",
+						"desp": "7#锅炉系统_一次风管空预器左温度"
+					},
+					{
+						"timeSeries": "AirPipe:16906bae-29c3-4c7a-87e9-c34374705574:pressure",
+						"label": "wind11_pre_7",
+						"desp": "7#锅炉系统_一次风管空预器左压力"
+					},
+					{
+						"timeSeries": "AirPipe:fac5ac8d-d181-4a68-82f9-d81415a93ca5:temperature",
+						"label": "wind12_temp_7",
+						"desp": "7#锅炉系统_一次风管空预器右温度"
+					},
+					{
+						"timeSeries": "AirPipe:fac5ac8d-d181-4a68-82f9-d81415a93ca5:pressure",
+						"label": "wind12_pre_7",
+						"desp": "7#锅炉系统_一次风管空预器右压力"
+					},
+					{
+						"timeSeries": "Thermometer:dcd0f959-7309-4e27-b3fa-08e56bcc2a13:temperature",
+						"label": "ECFJ_temp_7",
+						"desp": "7#锅炉系统_二次风机出口温度"
+					},
+					{
+						"timeSeries": "AirPipe:ed70bfa0-d81c-4ccc-bf67-38cf8e2a00da:airFlow",
+						"label": "LFL2_Current_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "AirFan:b084a8ca-6aac-4f48-aaef-43dddc44b57a:pressure",
+						"label": "LFL2_pre_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "Thermometer:dcd0f959-7309-4e27-b3fa-08e56bcc2a13:temperature",
+						"label": "LFL2_temp_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidBoilerBody:06d7ec23-5719-4061-8ad8-3f0a6023efc4:negPressure1",
+						"label": "negPressure1_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidBoilerBody:06d7ec23-5719-4061-8ad8-3f0a6023efc4:negPressure2",
+						"label": "negPressure2_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "AirPipe:16906bae-29c3-4c7a-87e9-c34374705574:airFlow",
+						"label": "LFL1_L_Current_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "AirPipe:fac5ac8d-d181-4a68-82f9-d81415a93ca5:airFlow",
+						"label": "LFL1_R_Current_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidBoilerBody:06d7ec23-5719-4061-8ad8-3f0a6023efc4:topTemperature1",
+						"label": "topTemperature1_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidBoilerBody:06d7ec23-5719-4061-8ad8-3f0a6023efc4:topTemperature2",
+						"label": "topTemperature2_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidWindRoom:7555bb9e-47ec-475c-95d5-80492ba78bd0:pressure1",
+						"label": "LHF_pressure1_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidWindRoom:7555bb9e-47ec-475c-95d5-80492ba78bd0:pressure2",
+						"label": "LHF_pressure2_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "Motor:e4cbde8d-927a-4646-a2d5-4eea94fc315c:runFrequency",
+						"label": "LZJ_runFrequency1_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "Motor:64aafba9-d26c-4e11-b7ee-2fe451b8b6ca:runFrequency",
+						"label": "LZJ_runFrequency2_7",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FlowMeter:23d148d5-5a50-4afc-a5b3-4de69954185e:instaneousFlow",
+						"label": "steam_8",
+						"desp": "8#锅炉系统_过热器出口蒸汽流量"
+					},
+					{
+						"timeSeries": "FluePipeSection:7280c144-1c5f-42d6-9647-ab8ad4d57c45:oxygenContent1",
+						"label": "AT1230A",
+						"desp": "8#锅炉系统_低温过热器出口烟气氧含量左"
+					},
+					{
+						"timeSeries": "FluePipeSection:7280c144-1c5f-42d6-9647-ab8ad4d57c45:oxygenContent2",
+						"label": "AT1230B",
+						"desp": "8#锅炉系统_低温过热器出口烟气氧含量右"
+					},
+					{
+						"timeSeries": "FluidBoilerBody:6bf5137c-e44c-4808-ba49-75bf6b5e95f9:bedTopTemperature1",
+						"label": "TE1222A",
+						"desp": "8#锅炉系统_锅炉本体料层顶部温度左"
+					},
+					{
+						"timeSeries": "FluidBoilerBody:6bf5137c-e44c-4808-ba49-75bf6b5e95f9:bedTopTemperature2",
+						"label": "TE1222C",
+						"desp": "8#锅炉系统_锅炉本体料层顶部温度右"
+					},
+					{
+						"timeSeries": "CoalFeeder:05fe9e67-a878-4f07-a49e-018a9b7ba098:instaneousCoal",
+						"label": "GM1_8",
+						"desp": "8#锅炉系统_1#给煤机瞬时给煤量"
+					},
+					{
+						"timeSeries": "CoalFeeder:05fe9e67-a878-4f07-a49e-018a9b7ba098:runState",
+						"label": "GM1KG_8",
+						"desp": "8#锅炉系统_1#给煤机运行状态"
+					},
+					{
+						"timeSeries": "CoalFeeder:05fe9e67-a878-4f07-a49e-018a9b7ba098:runFrequency",
+						"label": "GMKD1_SRC_8",
+						"desp": "8#锅炉系统_1#给煤机运行频率"
+					},
+					{
+						"timeSeries": "CoalFeeder:f04dde5b-932c-4287-8c88-0b6840497570:instaneousCoal",
+						"label": "GM2_8",
+						"desp": "8#锅炉系统_2#给煤机瞬时给煤量"
+					},
+					{
+						"timeSeries": "CoalFeeder:f04dde5b-932c-4287-8c88-0b6840497570:runState",
+						"label": "GM2KG_8",
+						"desp": "8#锅炉系统_2#给煤机运行状态"
+					},
+					{
+						"timeSeries": "CoalFeeder:f04dde5b-932c-4287-8c88-0b6840497570:runFrequency",
+						"label": "GMKD2_SRC_8",
+						"desp": "8#锅炉系统_2#给煤机运行频率"
+					},
+					{
+						"timeSeries": "CoalFeeder:528b68e2-b7d6-49f8-8ef9-9a4e47e3727d:instaneousCoal",
+						"label": "GM3_8",
+						"desp": "8#锅炉系统_3#给煤机瞬时给煤量"
+					},
+					{
+						"timeSeries": "CoalFeeder:528b68e2-b7d6-49f8-8ef9-9a4e47e3727d:runState",
+						"label": "GM3KG_8",
+						"desp": "8#锅炉系统_3#给煤机运行状态"
+					},
+					{
+						"timeSeries": "CoalFeeder:528b68e2-b7d6-49f8-8ef9-9a4e47e3727d:runFrequency",
+						"label": "GMKD3_SRC_8",
+						"desp": "8#锅炉系统_3#给煤机运行频率"
+					},
+					{
+						"timeSeries": "AirFan:d27c19c4-bfbe-4262-935a-5cdeda717dd4:pressure",
+						"label": "pressure1_8",
+						"desp": "8#锅炉系统_一次风机压力"
+					},
+					{
+						"timeSeries": "AirFan:d27c19c4-bfbe-4262-935a-5cdeda717dd4:airDoor",
+						"label": "YCFJ_SRC_8",
+						"desp": "8#锅炉系统_一次风机风门"
+					},
+					{
+						"timeSeries": "AirFan:47f1799a-7c48-4ee9-8b56-4a5a28778999:pressure",
+						"label": "pressure2_8",
+						"desp": "8#锅炉系统_二次风机压力"
+					},
+					{
+						"timeSeries": "AirFan:47f1799a-7c48-4ee9-8b56-4a5a28778999:runFrequency",
+						"label": "ECFJ_SRC_8",
+						"desp": "8#锅炉系统_二次风机风门"
+					},
+					{
+						"timeSeries": "FlowMeter:23d148d5-5a50-4afc-a5b3-4de69954185e:instaneousFlow",
+						"label": "PVf_8",
+						"desp": "8#锅炉系统_过热器出口蒸汽流量"
+					},
+					{
+						"timeSeries": "AirPipe:50e1617d-6264-4ff5-93b2-fe5ab3fbd1c0:airFlow",
+						"label": "LHFLl1_8",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门前风量"
+					},
+					{
+						"timeSeries": "AirPipe:50e1617d-6264-4ff5-93b2-fe5ab3fbd1c0:pressure",
+						"label": "LHYLl1_8",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门前压力"
+					},
+					{
+						"timeSeries": "AirPipe:f62dfbe9-2eb4-4b2d-90ae-76f8f21f231d:airFlow",
+						"label": "LHFLl2_8",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门中风量"
+					},
+					{
+						"timeSeries": "AirPipe:f62dfbe9-2eb4-4b2d-90ae-76f8f21f231d:pressure",
+						"label": "LHYLl2_8",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门中压力"
+					},
+					{
+						"timeSeries": "AirPipe:306e59c0-55a4-42ac-a500-5393f41ce5e7:airFlow",
+						"label": "LHFLl3_8",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门后风量"
+					},
+					{
+						"timeSeries": "AirPipe:306e59c0-55a4-42ac-a500-5393f41ce5e7:pressure",
+						"label": "LHYLl3_8",
+						"desp": "8#锅炉系统_左旋风分离器返料风调节风门后压力"
+					},
+					{
+						"timeSeries": "AirPipe:c2f635aa-5b05-4807-9a82-ad0b913c3d31:airFlow",
+						"label": "LHFLr1_8",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门前风量"
+					},
+					{
+						"timeSeries": "AirPipe:c2f635aa-5b05-4807-9a82-ad0b913c3d31:pressure",
+						"label": "LHYLr1_8",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门前压力"
+					},
+					{
+						"timeSeries": "AirPipe:cde0ae38-a1a7-4bdd-8af9-82d6d7489e86:airFlow",
+						"label": "LHFLr2_8",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门中风量"
+					},
+					{
+						"timeSeries": "AirPipe:cde0ae38-a1a7-4bdd-8af9-82d6d7489e86:pressure",
+						"label": "LHYLr2_8",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门中压力"
+					},
+					{
+						"timeSeries": "AirPipe:045ec9e7-9fc7-4e71-b0e0-ce1ef64f4fcc:airFlow",
+						"label": "LHFLr3_8",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门后风量"
+					},
+					{
+						"timeSeries": "AirPipe:045ec9e7-9fc7-4e71-b0e0-ce1ef64f4fcc:pressure",
+						"label": "LHYLr3_8",
+						"desp": "8#锅炉系统_右旋风分离器返料风调节风门后压力"
+					},
+					{
+						"timeSeries": "AirPipe:400dc0f2-9f08-44c8-ab7f-7085b8705761:temperature",
+						"label": "wind11_temp_8",
+						"desp": "8#锅炉系统_一次风管空预器左温度"
+					},
+					{
+						"timeSeries": "AirPipe:400dc0f2-9f08-44c8-ab7f-7085b8705761:pressure",
+						"label": "wind11_pre_8",
+						"desp": "8#锅炉系统_一次风管空预器左压力"
+					},
+					{
+						"timeSeries": "AirPipe:31710a74-b0a9-4763-ac67-809f21f69a24:temperature",
+						"label": "wind12_temp_8",
+						"desp": "8#锅炉系统_一次风管空预器右温度"
+					},
+					{
+						"timeSeries": "AirPipe:31710a74-b0a9-4763-ac67-809f21f69a24:pressure",
+						"label": "wind12_pre_8",
+						"desp": "8#锅炉系统_一次风管空预器右压力"
+					},
+					{
+						"timeSeries": "Thermometer:dcd0f959-7309-4e27-b3fa-08e56bcc2a13:temperature",
+						"label": "ECFJ_temp_8",
+						"desp": "8#锅炉系统_二次风机出口温度"
+					},
+					{
+						"timeSeries": "AirPipe:8d43e688-bdff-4667-bb34-9d312e49e711:airFlow",
+						"label": "LFL2_Current_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "AirFan:47f1799a-7c48-4ee9-8b56-4a5a28778999:pressure",
+						"label": "LFL2_pre_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "Thermometer:dcd0f959-7309-4e27-b3fa-08e56bcc2a13:temperature",
+						"label": "LFL2_temp_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidBoilerBody:6bf5137c-e44c-4808-ba49-75bf6b5e95f9:negPressure1",
+						"label": "negPressure1_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidBoilerBody:6bf5137c-e44c-4808-ba49-75bf6b5e95f9:negPressure2",
+						"label": "negPressure2_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "AirPipe:400dc0f2-9f08-44c8-ab7f-7085b8705761:airFlow",
+						"label": "LFL1_L_Current_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "AirPipe:31710a74-b0a9-4763-ac67-809f21f69a24:airFlow",
+						"label": "LFL1_R_Current_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidBoilerBody:6bf5137c-e44c-4808-ba49-75bf6b5e95f9:topTemperature1",
+						"label": "topTemperature1_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidBoilerBody:6bf5137c-e44c-4808-ba49-75bf6b5e95f9:topTemperature2",
+						"label": "topTemperature2_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidWindRoom:6d6279b6-f10c-43bf-a272-ee2e1d125b56:pressure1",
+						"label": "LHF_pressure1_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "FluidWindRoom:6d6279b6-f10c-43bf-a272-ee2e1d125b56:pressure2",
+						"label": "LHF_pressure2_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "Motor:f7de84c0-7507-4f54-8a40-6ffb12e11c47:runFrequency",
+						"label": "LZJ_runFrequency1_8",
+						"desp": ""
+					},
+					{
+						"timeSeries": "Motor:961ad4c6-7410-46e7-a69e-4f4a444f0aba:runFrequency",
+						"label": "LZJ_runFrequency2_8",
+						"desp": ""
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "SETTING0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "参数配置",
+			"parameters": {
+				"settings": {
+					"line7_Ps": 1.86,
+					"line6_Ps": 1.86,
+					"line_low_Ps": 0.78,
+					"line_middle_Ps": 3.2,
+					"line_high_Ps": 9,
+					"boiler_6_max": 130,
+					"boiler_6_min": 80,
+					"boiler_7_max": 110,
+					"boiler_7_min": 50,
+					"boiler_8_max": 110,
+					"boiler_8_min": 50,
+					"boiler_4_min": 10,
+					"SJ1_max": 70,
+					"SJ2_max": 70,
+					"SJ4_max": 40,
+					"SJ5_max": 30,
+					"SJ6_max": 40,
+					"SJ7_max": 150,
+					"turbine1_power_max": 6,
+					"turbine1_power_min": 2,
+					"turbine1_chou_max": 45,
+					"turbine2_power_max": 6,
+					"turbine2_power_min": 2,
+					"turbine2_chou_max": 45,
+					"turbine3_power_max": 12,
+					"turbine3_power_min": 4,
+					"turbine4_power_max": 14.4,
+					"turbine4_power_min": 5.8,
+					"turbine4_chou_max": 30,
+					"turbine4_pai_max": 100,
+					"turbine4_pai_min": 52,
+					"SJ1_target_temperature": 435,
+					"SJ2_target_temperature": 435,
+					"SJ3_target_temperature": 350,
+					"SJ6_target_temperature": 280,
+					"SJ7_target_temperature": 435,
+					"SJ3_pressure_open_max": 65,
+					"dianwang_power_max": 0.5,
+					"dianwang_power_min": -0.5
+				},
+				"conditions": [
+					{
+						"line7_target_p": "line7_Ps",
+						"line6_target_p": "line6_Ps",
+						"line_low_target_p": "line_low_Ps",
+						"line_middle_target_p": "line_middle_Ps",
+						"line_high_target_p": "line_high_Ps",
+						"boiler_6_flow_max": "boiler_6_max",
+						"boiler_6_flow_min": "boiler_6_min",
+						"boiler_7_flow_max": "boiler_7_max",
+						"boiler_7_flow_min": "boiler_7_min",
+						"boiler_8_flow_max": "boiler_8_max",
+						"boiler_8_flow_min": "boiler_8_min",
+						"boiler_4_flow_min": "boiler_4_min",
+						"SJ1_flow_max": "SJ1_max",
+						"SJ2_flow_max": "SJ2_max",
+						"SJ4_flow_max": "SJ4_max",
+						"SJ5_flow_max": "SJ5_max",
+						"SJ6_flow_max": "SJ6_max",
+						"SJ7_flow_max": "SJ7_max",
+						"QLJ1_settingPower_max": "turbine1_power_max",
+						"QLJ1_settingPower_min": "turbine1_power_min",
+						"QLJ1_chou_max": "turbine1_chou_max",
+						"QLJ2_settingPower_max": "turbine2_power_max",
+						"QLJ2_settingPower_min": "turbine2_power_min",
+						"QLJ2_chou_max": "turbine2_chou_max",
+						"QLJ3_settingPower_max": "turbine3_power_max",
+						"QLJ3_settingPower_min": "turbine3_power_min",
+						"QLJ4_settingPower_max": "turbine4_power_max",
+						"QLJ4_settingPower_min": "turbine4_power_min",
+						"QLJ4_chou_max": "turbine4_chou_max",
+						"QLJ4_pai_max": "turbine4_pai_max",
+						"QLJ4_pai_min": "turbine4_pai_min",
+						"SJ1_output_target_t": "SJ1_target_temperature",
+						"SJ2_output_target_t": "SJ2_target_temperature",
+						"SJ3_output_target_t": "SJ3_target_temperature",
+						"SJ6_output_target_t": "SJ6_target_temperature",
+						"SJ7_output_target_t": "SJ7_target_temperature",
+						"SJ3_setting_p_open_max": "SJ3_pressure_open_max",
+						"dianwang_settingPower_max": "dianwang_power_max",
+						"dianwang_settingPower_min": "dianwang_power_min"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line7_target_p",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line6_target_p",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line_low_target_p",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line_middle_target_p",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line_high_target_p",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_6_flow_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_6_flow_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_7_flow_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_7_flow_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_8_flow_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_8_flow_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler_4_flow_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ1_flow_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ2_flow_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ4_flow_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ5_flow_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ6_flow_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ7_flow_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ1_settingPower_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ1_settingPower_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ1_chou_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ2_settingPower_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ2_settingPower_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ2_chou_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ3_settingPower_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ3_settingPower_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ4_settingPower_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ4_settingPower_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ4_chou_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ4_pai_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ4_pai_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ1_output_target_t",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ2_output_target_t",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ3_output_target_t",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ6_output_target_t",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ7_output_target_t",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ3_setting_p_open_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "dianwang_settingPower_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "dianwang_settingPower_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "CSTJ0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "判断汽轮机开关状态",
+			"parameters": {
+				"conditions": [
+					{
+						"QLJ1_enable": "QLJ1_e >= QLJ1_settingPower_min",
+						"QLJ2_enable": "QLJ2_e >= QLJ2_settingPower_min",
+						"QLJ3_enable": "QLJ3_e >= QLJ3_settingPower_min",
+						"QLJ4_enable": "QLJ4_e >= QLJ4_settingPower_min",
+						"SJ1_enable": "SJ1_p_open_realtime > 1",
+						"SJ2_enable": "SJ2_p_open_realtime > 1",
+						"SJ3_enable": "SJ3_p_open_realtime > 1",
+						"SJ6_enable": "SJ6_p_open_realtime > 10",
+						"SJ7_enable": "SJ7_p_open_realtime > 1",
+						"boiler6_enable": "boiler6_Fn >= boiler_6_flow_min",
+						"boiler7_enable": "boiler7_Fn >= boiler_7_flow_min",
+						"boiler8_enable": "boiler8_Fn >= boiler_8_flow_min",
+						"boiler4_enable": "boiler4_Fn >= boiler_4_flow_min"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ1_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ2_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ3_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "QLJ4_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ1_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ2_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ3_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ6_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ7_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler6_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler7_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler8_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler4_enable",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "TSTJ0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "判断特殊条件",
+			"parameters": {
+				"settings": {
+					"minutePoint": 480
+				},
+				"conditions": [
+					{
+						"condition": "minuteOffset(timestamp) >= minutePoint",
+						"TSTJ": 0
+					},
+					{
+						"TSTJ": 1
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "TSTJ",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line7flow0",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "7号线T1时刻出口压力",
+			"parameters": {
+				"timeWindowLength": 300000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t1": 160000
+				},
+				"methods": [
+					{
+						"name": "line7Pt1",
+						"expression": "latest(timestamp, t1, Line7Pressure, t1 + 100000)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line7flow1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "7号线当前管线出口压力减前T1时刻出口压力",
+			"parameters": {
+				"conditions": [
+					{
+						"line7deltaPx": "Line7Pressure - line7Pt1"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line7deltaPx",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line7flow2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "7号线当前管网压力减管网目标压力Ps1",
+			"parameters": {
+				"conditions": [
+					{
+						"line7deltaP": "Line7Pressure - line7_target_p"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line7deltaP",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line7flow3",
+			"moduleId": "Toolkit:BufferAggregate",
+			"parameters": {
+				"timeWindowLength": 3000000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t2": 600000
+				},
+				"methods": [
+					{
+						"name": "line7sigmaP",
+						"expression": "x=vlatest(timestamp, t2, Line7Pressure);y=vlatest(timestamp, 5000, line7_target_p);vsum(x-vrange(0,y[1],y[1],len(x)))/len(x)*t2/1000"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line7flow4",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "7号线实时压力矫正值Fe",
+			"parameters": {
+				"settings": {
+					"a": 50,
+					"b": 10,
+					"c": 0.08
+				},
+				"conditions": [
+					{
+						"line7Fe": "a * line7deltaPx + b * line7deltaP + c * line7sigmaP"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line7Fe",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line7flow5",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "7号线目标蒸汽流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line7Fm": "line7flow - line7Fe"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line7Fm",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "SJ3input0",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "3号双减最大出口流量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "ef920422-e7ae-4178-9334-edc797e0c5b3",
+				"version": "1.0",
+				"inputMapping": {
+					"SJ3_input_p": "input_pre",
+					"SJ3_input_temp": "input_temp",
+					"SJ3_output_p": "out_pre",
+					"SJ3_output_target_t": "target_out_temp",
+					"SJ3_setting_p_open_max": "pre_open"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"out_flow": "SJ3_flow_max"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "SJ3input1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "3号双减出口流量",
+			"parameters": {
+				"conditions": [
+					{
+						"SJ3_output_flow": "min(line7Fm, SJ3_flow_max)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ3_output_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "SJ3input2",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "3号双减的开度和入口流量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "a0332d55-af56-425c-977c-b1811d6ae5f4",
+				"version": "1.0",
+				"inputMapping": {
+					"SJ3_input_p": "input_pre",
+					"SJ3_input_temp": "input_temp",
+					"SJ3_output_p": "out_pre",
+					"SJ3_output_flow": "target_out_flow",
+					"SJ3_output_target_t": "target_out_temp"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"input_flow": "SJ3_input_flow",
+					"pre_open": "SJ3_p_open",
+					"temp_open": "SJ3_temp_open",
+					"water_flow": "SJ3_water_flow"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "Line6flow0",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "6号线T1时刻出口压力",
+			"parameters": {
+				"timeWindowLength": 300000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t1": 160000
+				},
+				"methods": [
+					{
+						"name": "line6Pt1",
+						"expression": "latest(timestamp, t1, Line6Pressure,t1 + 100000)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line6flow1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "6号线当前管线出口压力减前T1时刻出口压力",
+			"parameters": {
+				"conditions": [
+					{
+						"line6deltaPx": "Line6Pressure - line6Pt1"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line6deltaPx",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line6flow2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "6号线当前管网压力减管网目标压力Ps1",
+			"parameters": {
+				"conditions": [
+					{
+						"line6deltaP": "Line6Pressure - line6_target_p"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line6deltaP",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line6flow3",
+			"moduleId": "Toolkit:BufferAggregate",
+			"parameters": {
+				"timeWindowLength": 3000000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t2": 600000
+				},
+				"methods": [
+					{
+						"name": "line6sigmaP",
+						"expression": "x=vlatest(timestamp, t2, Line6Pressure);y=vlatest(timestamp, 5000, line6_target_p);vsum(x-vrange(0,y[1],y[1],len(x)))/len(x)*t2/1000"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line6flow4",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "6号线实时压力矫正值Fe",
+			"parameters": {
+				"settings": {
+					"a": 30,
+					"b": 40,
+					"c": 0.06
+				},
+				"conditions": [
+					{
+						"line6Fe": "a * line6deltaPx + b * line6deltaP + c * line6sigmaP"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line6Fe",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line6flow5",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "6号线目标蒸汽流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line6Fm": "line6flow - line6Fe + line7Fm - SJ3_output_flow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line6Fm",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "chuyangqi0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "6号炉加热量",
+			"parameters": {
+				"conditions": [
+					{
+						"chuyangqi_6_flow": "boiler6_Fn*boiler6_enable*chuyangqi_flow/(boiler7_Fn*boiler7_enable + boiler8_Fn*boiler8_enable)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "chuyangqi_6_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "chuyangqi1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "总加热量",
+			"parameters": {
+				"settings": {
+					"offset": 0
+				},
+				"conditions": [
+					{
+						"chuyangqi_total_flow": "chuyangqi_flow + chuyangqi_6_flow + boiler4_Fn*0.165 + offset"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "chuyangqi_total_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+				{
+			"nodeId": "SJ12outInstaneousFlow0",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "1号双减减压阀开度计算出口流量",
+			"parameters":{
+				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"instanceId":"265739f6-5129-42cd-9d0c-578381b774ea",
+				"version":"1.0",
+				"inputMapping":{
+					"SJ1_input_p":"input_pre",
+					"SJ1_input_temp":"input_temp",
+					"SJ1_output_p":"out_pre",
+					"SJ1_p_open_realtime":"pre_open",
+					"SJ1_output_temp":"target_out_temp"
+				},
+				"inputExtraFields":{
+
+				},
+				"outputMapping":{
+					"out_flow":"SJ1_outInstaneousFlow"
+				},
+				"defaultValue":0
+			}
+		},
+		{
+			"nodeId": "SJ12outInstaneousFlow1",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "2号双减减压阀开度计算出口流量",
+			"parameters":{
+				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"instanceId":"0bbf7bf2-86c8-41ef-a7f4-a5f236488d22",
+				"version":"1.0",
+				"inputMapping":{
+					"SJ2_input_p":"input_pre",
+					"SJ2_input_temp":"input_temp",
+					"SJ2_output_p":"out_pre",
+					"SJ2_p_open_realtime":"pre_open",
+					"SJ2_output_temp":"target_out_temp"
+				},
+				"inputExtraFields":{
+
+				},
+				"outputMapping":{
+					"out_flow":"SJ2_outInstaneousFlow"
+				},
+				"defaultValue":0
+			}
+		},
+		{
+			"nodeId":"SJ12outInstaneousFlow2",
+			"moduleId":"Toolkit:Scoring",
+			"desc":"3号双减进气量",
+			"parameters":{
+				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"instanceId":"a0332d55-af56-425c-977c-b1811d6ae5f4",
+				"version":"1.0",
+				"inputMapping":{
+					"SJ3_input_p":"input_pre",
+					"SJ3_input_temp":"input_temp",
+					"SJ3_output_p":"out_pre",
+					"SJ3_outInstaneousFlow_realtime":"target_out_flow",
+					"SJ3_output_t":"target_out_temp"
+				},
+				"inputExtraFields":{
+
+				},
+				"outputMapping":{
+					"input_flow":"SJ3_inputInstaneousFlow"
+				},
+				"defaultValue":0
+			}
+		},
+		{
+			"nodeId":"SJ12outInstaneousFlow3",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1,2号双减出口测点流量判断",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "SJ2_outInstaneousFlow_realtime > 0",
+						"SJ12_outInstaneousFlow": "SJ2_outInstaneousFlow_realtime"
+					},
+					{
+						"SJ12_outInstaneousFlow": "SJ1_outInstaneousFlow + SJ2_outInstaneousFlow - SJ3_inputInstaneousFlow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ12_outInstaneousFlow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "changyongqi0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "4,6号双减总进气量和4号双减出气量",
+			"parameters": {
+				"conditions": [
+					{
+						"SJ46_inputInstaneousFlow": "boiler4_Fn*boiler4_enable+SJ7_outInstaneousFlow_realtime-QLJ1_mainStreamInsFlow-QLJ2_mainStreamInsFlow-QLJ3_mainStreamInsFlow+SJ12_outInstaneousFlow",
+						"SJ4_outputInstaneousFlow": "line6flow+line7flow-SJ3_outInstaneousFlow_realtime-QLJ4_extractStreamInsFlow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ46_inputInstaneousFlow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ4_outputInstaneousFlow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "changyongqi1",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "4号双减减温水量",
+			"parameters":{
+				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"instanceId":"a0332d55-af56-425c-977c-b1811d6ae5f4",
+				"version":"1.0",
+				"inputMapping":{
+					"SJ3_input_p":"input_pre",
+					"SJ3_input_temp":"input_temp",
+					"Line6Pressure":"out_pre",
+					"SJ4_outputInstaneousFlow":"target_out_flow",
+					"line6Temperature":"target_out_temp"
+				},
+				"inputExtraFields":{
+
+				},
+				"outputMapping":{
+					"water_flow":"SJ4_water_flow"
+				},
+				"defaultValue":0
+			}
+		},
+		{
+			"nodeId": "changyongqi2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "6号双减进气量",
+			"parameters": {
+				"conditions": [
+					{
+						"SJ6_inputInstaneousFlow": "SJ46_inputInstaneousFlow-(SJ4_outputInstaneousFlow-SJ4_water_flow)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ6_inputInstaneousFlow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "changyongqi3",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "6号双减减温水量",
+			"parameters":{
+				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"instanceId":"db21f573-fbd1-48de-a436-b90925d64836",
+				"version":"1.0",
+				"inputMapping":{
+					"SJ7_output_p":"input_pressure",
+					"SJ7_output_temp":"input_temp",
+					"Line5Pressure":"out_pressure",
+					"SJ6_inputInstaneousFlow":"input_flow",
+					"Line5Temperature":"target_out_temp"
+				},
+				"inputExtraFields":{
+
+				},
+				"outputMapping":{
+					"water_flow":"SJ6_waterFlow"
+				},
+				"defaultValue":0
+			}
+		},
+		{
+			"nodeId": "changyongqi4",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "6号双减出气量",
+			"parameters": {
+				"conditions": [
+					{
+						"SJ6_outInstaneousFlow": "SJ6_inputInstaneousFlow + SJ6_waterFlow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ6_outInstaneousFlow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "changyongqi5",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "厂用气量",
+			"parameters": {
+				"conditions": [
+					{
+						"changyongqi": "SJ6_outInstaneousFlow + QLJ4_exhaustStreamInsFlow + QLJ1_extractStreamInsFlow + QLJ2_extractStreamInsFlow - (line1flow + line2flow + line3flow + line4flow + line5flow)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "changyongqi",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line_low_flow0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "低压母管压力均值和流量之和",
+			"parameters": {
+				"conditions": [
+					{
+						"Line_low_Pressure": "(Line1Pressure + Line2Pressure + Line3Pressure + Line4Pressure + Line5Pressure)/5",
+						"line_low_flow": "line1flow + line2flow + line3flow + line4flow + line5flow + changyongqi"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "Line_low_Pressure",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line_low_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line_low_flow1",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "低压母管线T1时刻出口压力",
+			"parameters": {
+				"timeWindowLength": 300000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t1": 160000
+				},
+				"methods": [
+					{
+						"name": "line_low_Pt1",
+						"expression": "latest(timestamp, t1, Line_low_Pressure,t1 + 100000)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line_low_flow2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "低压母管线当前管线出口压力减前T1时刻出口压力",
+			"parameters": {
+				"conditions": [
+					{
+						"line_low_deltaPx": "Line_low_Pressure - line_low_Pt1"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_low_deltaPx",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line_low_flow3",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "低压母管线当前管网压力减管网目标压力Ps1",
+			"parameters": {
+				"conditions": [
+					{
+						"line_low_deltaP": "Line_low_Pressure - line_low_target_p"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_low_deltaP",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line_low_flow4",
+			"moduleId": "Toolkit:BufferAggregate",
+			"parameters": {
+				"timeWindowLength": 3000000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t2": 600000
+				},
+				"methods": [
+					{
+						"name": "line_low_sigmaP",
+						"expression": "x=vlatest(timestamp, t2, Line_low_Pressure);y=vlatest(timestamp, 5000, line_low_target_p);vsum(x-vrange(0,y[1],y[1],len(x)))/len(x)*t2/1000"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line_low_flow5",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "低压母管线实时压力矫正值Fe",
+			"parameters": {
+				"settings": {
+					"a": 100,
+					"b": 50,
+					"c": 0.1
+				},
+				"conditions": [
+					{
+						"line_low_Fe": "a * line_low_deltaPx + b * line_low_deltaP + c * line_low_sigmaP"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_low_Fe",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "Line_low_flow6",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "低压母管线目标蒸汽流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line_low_Fm": "line_low_flow - line_low_Fe"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_low_Fm",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ4_0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "4号汽轮机抽气量",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line6Fm > QLJ4_chou_max",
+						"QLJ4_chou": "QLJ4_chou_max"
+					},
+					{
+						"QLJ4_chou": "line6Fm"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ4_chou",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ4_1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "4号汽轮机排气量",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line_low_Fm > QLJ4_pai_max",
+						"QLJ4_pai": "QLJ4_pai_max"
+					},
+					{
+						"condition": "line_low_Fm < QLJ4_pai_min",
+						"QLJ4_pai": "QLJ4_pai_min"
+					},
+					{
+						"QLJ4_pai": "line_low_Fm"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ4_pai",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ4_2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "过4号汽轮机6号线剩余流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line6_flow_after_QLJ4": "line6Fm - QLJ4_chou"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line6_flow_after_QLJ4",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ4_3",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "过4号汽轮机低压母管剩余流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line_low_flow_after_QLJ4": "line_low_Fm - QLJ4_pai"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_low_flow_after_QLJ4",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ2_0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "2号汽轮机抽气量",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line_low_flow_after_QLJ4 > QLJ2_chou_max",
+						"QLJ2_chou": "QLJ2_chou_max * QLJ2_enable"
+					},
+					{
+						"condition": "line_low_flow_after_QLJ4 > 0",
+						"QLJ2_chou": "line_low_flow_after_QLJ4 * QLJ2_enable"
+					},
+					{
+						"QLJ2_chou": 0
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ2_chou",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ2_1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "过2号汽轮机低压母管剩余流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line_low_flow_after_QLJ2": "line_low_flow_after_QLJ4 - QLJ2_chou"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_low_flow_after_QLJ2",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ1_0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1号汽轮机抽气量",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line_low_flow_after_QLJ2 > QLJ1_chou_max",
+						"QLJ1_chou": "QLJ1_chou_max * QLJ1_enable"
+					},
+					{
+						"QLJ1_chou": "line_low_flow_after_QLJ2 * QLJ1_enable"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ1_chou",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ1_1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "过1号汽轮机低压母管剩余流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line_low_flow_after_QLJ1": "line_low_flow_after_QLJ2 - QLJ1_chou"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_low_flow_after_QLJ1",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "SJ5input0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "5号双减入口流量预分配",
+			"parameters": {
+				"settings": {
+					"percent": 0.98
+				},
+				"conditions": [
+					{
+						"condition": "line_low_flow_after_QLJ1 > SJ5_flow_max",
+						"SJ5_input_flow_pre": "SJ5_flow_max*percent"
+					},
+					{
+						"SJ5_input_flow_pre": "line_low_flow_after_QLJ1*percent"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ5_input_flow_pre",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "SJ5input1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "5号双减入口流量和4号双减出口流量",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "SJ5_input_flow_pre + line6_flow_after_QLJ4 > SJ4_flow_max",
+						"SJ4_output_flow": "SJ4_flow_max",
+						"SJ5_input_flow": "SJ4_flow_max - line6_flow_after_QLJ4"
+					},
+					{
+						"SJ4_output_flow": "SJ5_input_flow_pre + line6_flow_after_QLJ4",
+						"SJ5_input_flow": "SJ5_input_flow_pre"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ4_output_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ5_input_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "SJ5input2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "5号双减出口流量和4号双减入口流量",
+			"parameters": {
+				"settings": {
+					"percent_4": 0.924,
+					"percent_5": 0.98
+				},
+				"conditions": [
+					{
+						"SJ4_input_flow": "SJ4_output_flow*percent_4",
+						"SJ5_output_flow": "SJ5_input_flow/percent_5"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ4_input_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ5_output_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "SJ6input0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "6号双减出口流量",
+			"parameters": {
+				"conditions": [
+					{
+						"SJ6_output_flow": "if((line_low_flow_after_QLJ1 - SJ5_output_flow)>SJ6_flow_max, SJ6_flow_max, line_low_flow_after_QLJ1 - SJ5_output_flow)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ6_output_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "SJ6input1",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "6号双减的开度和入口流量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "3e5374e7-697d-4bbd-83ee-60709fde71ec",
+				"version": "1.0",
+				"inputMapping": {
+					"SJ6_output_flow": "target_out_flow",
+					"SJ6_output_target_t": "target_out_temp",
+					"Line5Pressure": "out_pressure",
+					"SJ7_output_p": "input_pressure",
+					"SJ7_output_temp": "input_temp"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"input_flow": "SJ6_input_flow",
+					"pre_open": "SJ6_pre_open",
+					"water_flow": "SJ6_water_flow"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "all_power0",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "电负荷平滑处理",
+			"parameters": {
+				"timeWindowLength": 50000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t1": 30000
+				},
+				"methods": [
+					{
+						"name": "QLJ1_power",
+						"expression": "x=vlatest(timestamp, t1, QLJ1_e);vsum(x)/len(x)"
+					},
+					{
+						"name": "QLJ2_power",
+						"expression": "x=vlatest(timestamp, t1, QLJ2_e);vsum(x)/len(x)"
+					},
+					{
+						"name": "QLJ3_power",
+						"expression": "x=vlatest(timestamp, t1, QLJ3_e);vsum(x)/len(x)"
+					},
+					{
+						"name": "QLJ4_power",
+						"expression": "x=vlatest(timestamp, t1, QLJ4_e);vsum(x)/len(x)"
+					},
+					{
+						"name": "dianwang_power",
+						"expression": "x=vlatest(timestamp, t1, dianwang_e);vsum(x)/len(x)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "dianwang_power0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "目标电负荷",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "dianwang_power >= dianwang_settingPower_min && dianwang_power <= dianwang_settingPower_max",
+						"dianwang_power_correction": 0
+					},
+					{
+						"dianwang_power_correction": "dianwang_power"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "dianwang_power_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "all_power1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "目标电负荷",
+			"parameters": {
+				"settings": {
+					"offset": 0
+				},
+				"conditions": [
+					{
+						"all_power": "QLJ1_power*QLJ1_enable + QLJ2_power*QLJ2_enable + QLJ3_power + QLJ4_power + dianwang_power_correction + offset"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "all_power",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "all_power3",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "2号汽轮机最小进气量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "4c4962bb-dbc6-47d4-ae95-398f0fe85fcb",
+				"version": "1.0",
+				"inputMapping": {
+					"HD_G2_ET_T": "HD_G2_ET_T",
+					"HD_G2_ET_P": "HD_G2_ET_P",
+					"HD_G2_S_T": "HD_G2_S_T",
+					"HD_G2_S_P": "HD_G2_S_P",
+					"QLJ2_settingPower_min": "HD_G2_W"
+				},
+				"inputExtraFields": {
+					"HD_G2_ET_F": 0
+				},
+				"outputMapping": {
+					"value": "QLJ2_input_flow_min"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "all_power4",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "2号汽轮机最小进气量加抽气量",
+			"parameters": {
+				"conditions": [
+					{
+						"QLJ2_input_flow_pre": "QLJ2_input_flow_min + QLJ2_chou"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ2_input_flow_pre",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "all_power5",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "2号最小发电量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "3cd1d882-9c9d-4e64-8f05-4340f3e6f86e",
+				"version": "1.0",
+				"inputMapping": {
+					"HD_G2_ET_T": "HD_G2_ET_T",
+					"HD_G2_ET_P": "HD_G2_ET_P",
+					"QLJ2_chou": "HD_G2_ET_F",
+					"HD_G2_S_T": "HD_G2_S_T",
+					"HD_G2_S_P": "HD_G2_S_P",
+					"QLJ2_input_flow_pre": "HD_G2_S_F"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "QLJ2_power_min"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "all_power6",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "1号汽轮机最小进气量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "20577ee6-dfc2-4f2f-b5a9-46e49eeb271a",
+				"version": "1.0",
+				"inputMapping": {
+					"HD_G1_ET_T": "HD_G1_ET_T",
+					"HD_G1_ET_P": "HD_G1_ET_P",
+					"HD_G1_S_T": "HD_G1_S_T",
+					"HD_G1_S_P": "HD_G1_S_P",
+					"QLJ1_settingPower_min": "HD_G1_W"
+				},
+				"inputExtraFields": {
+					"HD_G1_ET_F": 0
+				},
+				"outputMapping": {
+					"value": "QLJ1_input_flow_min"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "all_power7",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1号汽轮机最小进气量加抽气量",
+			"parameters": {
+				"conditions": [
+					{
+						"QLJ1_input_flow_pre": "QLJ1_input_flow_min + QLJ1_chou"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ1_input_flow_pre",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "all_power8",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "1号最小发电量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "c7bce625-adc1-4176-bb05-7aad94ead9fd",
+				"version": "1.0",
+				"inputMapping": {
+					"HD_G1_ET_T": "HD_G1_ET_T",
+					"HD_G1_ET_P": "HD_G1_ET_P",
+					"QLJ1_chou": "HD_G1_ET_F",
+					"HD_G1_S_T": "HD_G1_S_T",
+					"HD_G1_S_P": "HD_G1_S_P",
+					"QLJ1_input_flow_pre": "HD_G1_S_F"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "QLJ1_power_min"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "all_power9",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "预留1，2，3号汽轮机最小电负荷后剩余目标负荷",
+			"parameters": {
+				"conditions": [
+					{
+						"all_power_after_min": "all_power -  QLJ1_power_min*QLJ1_enable - QLJ2_power_min*QLJ2_enable - QLJ3_settingPower_min"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "all_power_after_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ4_power0",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "4号汽轮机进气量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "a461d148-30ef-4952-b663-bccab948599c",
+				"version": "1.0",
+				"inputMapping": {
+					"QLJ4_chou": "HD_G4_ET_F",
+					"HD_G4_EH_T": "HD_G4_EH_T",
+					"HD_G4_EH_P": "HD_G4_EH_P",
+					"HD_G4_EH_load_T": "EH_load_T",
+					"Line5Pressure": "EH_load_P",
+					"QLJ4_pai": "EH_load_F"
+				},
+				"outputMapping": {
+					"HD4_S_F": "QLJ4_input_flow"
+				},
+				"inputExtraFields": {},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "QLJ4_power1",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "4号汽轮机电负荷",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "a4bdf2f0-bde6-4314-adfb-793afe295ce9",
+				"version": "1.0",
+				"inputMapping": {
+					"HD_G4_ET_T": "HD_G4_ET_T",
+					"HD_G4_ET_P": "HD_G4_ET_P",
+					"QLJ4_chou": "HD_G4_ET_F",
+					"HD_G4_EH_T": "HD_G4_EH_T",
+					"HD_G4_EH_P": "HD_G4_EH_P",
+					"HD_G4_S_T": "HD_G4_S_T",
+					"HD_G4_S_P": "HD_G4_S_P",
+					"QLJ4_input_flow": "HD_G4_S_F"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "QLJ4_output_power"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "QLJ4_power2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "过4号汽轮机剩余电负荷",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "all_power_after_min > QLJ4_output_power",
+						"all_power_after_qlj4": "all_power_after_min - QLJ4_output_power"
+					},
+					{
+						"all_power_after_qlj4": 0
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "all_power_after_qlj4",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ3_power0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "3号汽轮机电负荷",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "TSTJ == 1",
+						"QLJ3_output_power": "QLJ3_settingPower_min"
+					},
+					{
+						"condition": "all_power_after_qlj4 > (QLJ3_settingPower_max - QLJ3_settingPower_min)",
+						"QLJ3_output_power": "QLJ3_settingPower_max"
+					},
+					{
+						"QLJ3_output_power": "QLJ3_settingPower_min + all_power_after_qlj4"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ3_output_power",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ3_power1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "过3号汽轮机剩余电负荷",
+			"parameters": {
+				"conditions": [
+					{
+						"all_power_after_qlj3": "all_power_after_qlj4 - (QLJ3_output_power - QLJ3_settingPower_min)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "all_power_after_qlj3",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ2_power0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "2号汽轮机电负荷",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "TSTJ == 1",
+						"QLJ3_output_power": "QLJ2_settingPower_min * QLJ2_enable"
+					},
+					{
+						"condition": "all_power_after_qlj3 > (QLJ2_settingPower_max - QLJ2_power_min)",
+						"QLJ2_output_power": "QLJ2_settingPower_max * QLJ2_enable"
+					},
+					{
+						"QLJ2_output_power": "(QLJ2_power_min + all_power_after_qlj3) * QLJ2_enable"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ2_output_power",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ1_power0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1号汽轮机电负荷",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "TSTJ == 1",
+						"QLJ1_output_power": "QLJ1_settingPower_min * QLJ1_enable"
+					},
+					{
+						"condition": "(all_power_after_qlj3 - QLJ2_output_power) > (QLJ1_settingPower_max - QLJ1_power_min)",
+						"QLJ1_output_power": "QLJ1_settingPower_max * QLJ1_enable"
+					},
+					{
+						"QLJ1_output_power": "(QLJ1_power_min + all_power_after_qlj3 - QLJ2_output_power) * QLJ1_enable"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ1_output_power",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "QLJ3_input0",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "3号汽轮机进气量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "c02d5dc6-9db8-4a44-8412-8085b7357c39",
+				"version": "1.0",
+				"inputMapping": {
+					"QLJ3_output_power": "HD_G3_W",
+					"HD_G3_ET_T": "HD_G3_ET_T",
+					"HD_G3_ET_P": "HD_G3_ET_P",
+					"HD_G3_S_T": "HD_G3_S_T",
+					"HD_G3_S_P": "HD_G3_S_P"
+				},
+				"inputExtraFields": {
+					"HD_G3_ET_F": 0
+				},
+				"outputMapping": {
+					"value": "QLJ3_input_flow"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "QLJ2_input0",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "2号汽轮机进气量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "4c4962bb-dbc6-47d4-ae95-398f0fe85fcb",
+				"version": "1.0",
+				"inputMapping": {
+					"QLJ2_output_power": "HD_G2_W",
+					"HD_G2_ET_T": "HD_G2_ET_T",
+					"HD_G2_ET_P": "HD_G2_ET_P",
+					"QLJ2_chou": "HD_G2_ET_F",
+					"HD_G2_S_T": "HD_G2_S_T",
+					"HD_G2_S_P": "HD_G2_S_P"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "QLJ2_input_flow"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "QLJ1_input0",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "1号汽轮机进气量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "20577ee6-dfc2-4f2f-b5a9-46e49eeb271a",
+				"version": "1.0",
+				"inputMapping": {
+					"QLJ1_output_power": "HD_G1_W",
+					"HD_G1_ET_T": "HD_G1_ET_T",
+					"HD_G1_ET_P": "HD_G1_ET_P",
+					"QLJ1_chou": "HD_G1_ET_F",
+					"HD_G1_S_T": "HD_G1_S_T",
+					"HD_G1_S_P": "HD_G1_S_P"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "QLJ1_input_flow"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "line_middle_flow0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "中压母管压力均值和流量之和",
+			"parameters": {
+				"conditions": [
+					{
+						"line_middle_pressure": "(QLJ1_input_p*QLJ1_enable + QLJ2_input_p*QLJ2_enable + QLJ3_input_p + SJ3_input_p)/(QLJ1_enable + QLJ2_enable + 2)",
+						"line_middle_flow": "QLJ1_input_flow*QLJ1_enable + QLJ2_input_flow*QLJ2_enable + QLJ3_input_flow + SJ6_input_flow + SJ4_input_flow + SJ3_input_flow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_middle_pressure",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line_middle_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_middle_flow1",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "中压母管线T1时刻出口压力",
+			"parameters": {
+				"timeWindowLength": 300000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t1": 160000
+				},
+				"methods": [
+					{
+						"name": "line_middle_Pt1",
+						"expression": "latest(timestamp, t1, line_middle_pressure,t1+100000)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_middle_flow2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "中压母管线当前管线出口压力减前T1时刻出口压力",
+			"parameters": {
+				"conditions": [
+					{
+						"line_middle_deltaPx": "line_middle_pressure - line_middle_Pt1"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_middle_deltaPx",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_middle_flow3",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "中压母管线当前管网压力减管网目标压力Ps1",
+			"parameters": {
+				"conditions": [
+					{
+						"line_middle_deltaP": "line_middle_pressure - line_middle_target_p"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_middle_deltaP",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_middle_flow4",
+			"moduleId": "Toolkit:BufferAggregate",
+			"parameters": {
+				"timeWindowLength": 3000000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t2": 600000
+				},
+				"methods": [
+					{
+						"name": "line_middle_sigmaP",
+						"expression": "x=vlatest(timestamp, t2, line_middle_pressure);y=vlatest(timestamp, 5000, line_middle_target_p);vsum(x-vrange(0,y[1],y[1],len(x)))/len(x)*t2/1000"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_middle_flow5",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "中压母管线实时压力矫正值Fe",
+			"parameters": {
+				"settings": {
+					"a": 5,
+					"b": 5,
+					"c": 0.02
+				},
+				"conditions": [
+					{
+						"line_middle_Fe": "a * line_middle_deltaPx + b * line_middle_deltaP + c * line_middle_sigmaP"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_middle_Fe",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_middle_flow6",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "中压母管线目标蒸汽流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line_middle_Fm": "line_middle_flow - line_middle_Fe - boiler4_Fn*boiler4_enable"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_middle_Fm",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_output0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1,2号双减入口压力均值和出口压力均值",
+			"parameters": {
+				"conditions": [
+					{
+						"SJ12_input_p": "(SJ1_input_p+SJ2_input_p)/2",
+						"SJ12_output_p": "(SJ1_output_p+SJ2_output_p)/2"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ12_input_p",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ12_output_p",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_output1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1,2号双减压差和7号双减压差",
+			"parameters": {
+				"conditions": [
+					{
+						"SJ12_io_deltaP": "SJ12_input_p - SJ12_output_p",
+						"SJ7_io_deltaP": "SJ7_input_p - SJ7_output_p"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ12_io_deltaP",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "SJ7_io_deltaP",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_output2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1,2号出口总流量",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line_middle_Fm*SJ12_io_deltaP/(SJ12_io_deltaP+SJ7_io_deltaP) > (SJ1_enable*SJ1_flow_max + SJ2_enable*SJ2_flow_max)",
+						"SJ12_output_flow": "SJ1_enable*SJ1_flow_max + SJ2_enable*SJ2_flow_max"
+					},
+					{
+						"SJ12_output_flow": "line_middle_Fm*SJ12_io_deltaP/(SJ12_io_deltaP+SJ7_io_deltaP)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ12_output_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_output3",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "7号双减出口流量",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "(line_middle_Fm - SJ12_output_flow) > SJ7_flow_max",
+						"SJ7_output_flow": "SJ7_flow_max"
+					},
+					{
+						"SJ7_output_flow": "line_middle_Fm - SJ12_output_flow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ7_output_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_output4",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "中压母管剩余流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line_middle_Fm_after_assign": "line_middle_Fm - SJ12_output_flow - SJ7_output_flow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_middle_Fm_after_assign",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_output5",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "7号双减入口流量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "bfeea325-0a09-40dd-94f9-7150f89c0db7",
+				"version": "1.0",
+				"inputMapping": {
+					"SJ7_input_p": "input_pre",
+					"SJ7_input_temp": "input_temp",
+					"SJ7_output_p": "out_pre",
+					"SJ7_output_target_t": "target_out_temp",
+					"SJ7_output_flow": "target_out_flow"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"input_flow": "SJ7_input_flow",
+					"pre_open": "SJ7_pre_open",
+					"temp_open": "SJ7_temp_open",
+					"water_flow": "SJ7_water_flow"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "line_high_output6",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "2号双减出口流量",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "SJ2_enable == 1 && SJ12_output_flow > SJ2_flow_max",
+						"SJ2_output_flow": "SJ2_flow_max"
+					},
+					{
+						"condition": "SJ2_enable == 1 && SJ12_output_flow <= SJ2_flow_max",
+						"SJ2_output_flow": "SJ12_output_flow"
+					},
+					{
+						"condition": "SJ2_enable == 0 && line_middle_Fm_after_assign > SJ2_flow_max",
+						"SJ2_output_flow": "SJ2_flow_max"
+					},
+					{
+						"condition": "SJ2_enable == 0 && line_middle_Fm_after_assign <= SJ2_flow_max",
+						"SJ2_output_flow": "line_middle_Fm_after_assign"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ2_output_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_output7",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1号双减出口流量",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "SJ1_enable == 1 && (SJ12_output_flow - SJ2_output_flow > SJ1_flow_max)",
+						"SJ1_output_flow": "SJ1_flow_max"
+					},
+					{
+						"condition": "SJ1_enable == 1 && (SJ12_output_flow - SJ2_output_flow <= SJ1_flow_max)",
+						"SJ1_output_flow": "SJ12_output_flow - SJ2_output_flow"
+					},
+					{
+						"condition": "SJ1_enable == 0 && line_middle_Fm_after_assign > SJ1_flow_max",
+						"SJ1_output_flow": "SJ1_flow_max"
+					},
+					{
+						"condition": "SJ1_enable == 0 && line_middle_Fm_after_assign <= SJ1_flow_max",
+						"SJ1_output_flow": "line_middle_Fm_after_assign"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ1_output_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_output8",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "2号双减入口流量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "de30c693-a289-423b-9449-cce5726a5c80",
+				"version": "1.0",
+				"inputMapping": {
+					"SJ2_input_p": "input_pre",
+					"SJ2_input_temp": "input_temp",
+					"SJ2_output_p": "out_pre",
+					"SJ2_output_target_t": "target_out_temp",
+					"SJ2_output_flow": "target_out_flow"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"input_flow": "SJ2_input_flow",
+					"pre_open": "SJ2_pre_open",
+					"temp_open": "SJ2_temp_open",
+					"water_flow": "SJ2_water_flow"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "line_high_output9",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "1号双减入口流量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "23276e2f-f34c-4991-b559-9ae3959fcf12",
+				"version": "1.0",
+				"inputMapping": {
+					"SJ1_input_p": "input_pre",
+					"SJ1_input_temp": "input_temp",
+					"SJ1_output_p": "out_pre",
+					"SJ1_output_target_t": "target_out_temp",
+					"SJ1_output_flow": "target_out_flow"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"input_flow": "SJ1_input_flow",
+					"pre_open": "SJ1_pre_open",
+					"temp_open": "SJ1_temp_open",
+					"water_flow": "SJ1_water_flow"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "line_high_flow0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "高压母管压力均值和流量之和",
+			"parameters": {
+				"conditions": [
+					{
+						"line_high_pressure": "(SJ7_input_p + SJ1_input_p + SJ2_input_p)/3",
+						"line_high_flow": "SJ1_input_flow + SJ2_input_flow + SJ7_input_flow + QLJ4_input_flow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_high_pressure",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line_high_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_flow1",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "高压母管线T1时刻出口压力",
+			"parameters": {
+				"timeWindowLength": 300000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t1": 160000
+				},
+				"methods": [
+					{
+						"name": "line_high_Pt1",
+						"expression": "latest(timestamp, t1, line_high_pressure,t1+100000)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_flow2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "高压母管线当前管线出口压力减前T1时刻出口压力",
+			"parameters": {
+				"conditions": [
+					{
+						"line_high_deltaPx": "line_high_pressure - line_high_Pt1"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_high_deltaPx",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_flow3",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "高压母管线当前管网压力减管网目标压力Ps1",
+			"parameters": {
+				"conditions": [
+					{
+						"line_high_deltaP": "line_high_pressure - line_high_target_p"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_high_deltaP",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_flow4",
+			"moduleId": "Toolkit:BufferAggregate",
+			"parameters": {
+				"timeWindowLength": 3000000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t2": 600000
+				},
+				"methods": [
+					{
+						"name": "line_high_sigmaP",
+						"expression": "x=vlatest(timestamp, t2, line_high_pressure);y=vlatest(timestamp, 5000, line_high_target_p);vsum(x-vrange(0,y[1],y[1],len(x)))/len(x)*t2/1000"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_flow5",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "高压母管线实时压力矫正值Fe",
+			"parameters": {
+				"settings": {
+					"a": 10,
+					"b": 5,
+					"c": 0.02
+				},
+				"conditions": [
+					{
+						"line_high_Fe": "a * line_high_deltaPx + b * line_high_deltaP + c * line_high_sigmaP"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_high_Fe",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_flow6",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "高压母管线实时目标蒸汽流量",
+			"parameters": {
+				"conditions": [
+					{
+						"line_high_Fm_current": "line_high_flow - line_high_Fe"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_high_Fm_current",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "判断高压母管线目标蒸汽流量是否超过已开锅炉最大负荷",
+			"parameters": {
+				"settings":{
+					"coef": 1.056
+				},
+				"conditions": [
+					{
+						"condition": "line_high_Fm_current > (boiler_6_flow_max*boiler6_enable + boiler_7_flow_max*boiler7_enable + boiler_8_flow_max*boiler8_enable)",
+						"line_high_delta": "(line_high_Fm_current - (boiler_6_flow_max*boiler6_enable + boiler_7_flow_max*boiler7_enable + boiler_8_flow_max*boiler8_enable))*coef"
+					},
+					{
+						"line_high_delta": 0
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_high_delta",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "计算1号汽轮机超负荷下的减负荷情况",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line_high_delta == 0",
+						"QLJ1_input_flow_correction": "QLJ1_input_flow",
+						"line_high_delta_after_QLJ1": 0
+					},
+					{
+						"condition": "QLJ1_enable == 1 && QLJ1_input_flow >= (QLJ1_input_flow_pre + line_high_delta)",
+						"QLJ1_input_flow_correction": "QLJ1_input_flow - line_high_delta",
+						"line_high_delta_after_QLJ1": 0
+					},
+					{
+						"condition": "QLJ1_enable == 1 && QLJ1_input_flow < (QLJ1_input_flow_pre + line_high_delta)",
+						"QLJ1_input_flow_correction": "QLJ1_input_flow_pre",
+						"line_high_delta_after_QLJ1": "line_high_delta - (QLJ1_input_flow - QLJ1_input_flow_pre)"
+					},
+					{
+						"QLJ1_input_flow_correction": 0,
+						"line_high_delta_after_QLJ1": "line_high_delta"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ1_input_flow_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line_high_delta_after_QLJ1",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign2",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "计算2号汽轮机超负荷下的减负荷情况",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line_high_delta_after_QLJ1 == 0",
+						"QLJ2_input_flow_correction": "QLJ2_input_flow",
+						"line_high_delta_after_QLJ2": 0
+					},
+					{
+						"condition": "QLJ2_enable == 1 && QLJ2_input_flow >= (QLJ2_input_flow_pre + line_high_delta_after_QLJ1)",
+						"QLJ2_input_flow_correction": "QLJ2_input_flow - line_high_delta_after_QLJ1",
+						"line_high_delta_after_QLJ2": 0
+					},
+					{
+						"condition": "QLJ2_enable == 1 && QLJ2_input_flow < (QLJ2_input_flow_pre + line_high_delta_after_QLJ1)",
+						"QLJ2_input_flow_correction": "QLJ2_input_flow_pre",
+						"line_high_delta_after_QLJ2": "line_high_delta_after_QLJ1 - (QLJ2_input_flow - QLJ2_input_flow_pre)"
+					},
+					{
+						"QLJ2_input_flow_correction": 0,
+						"line_high_delta_after_QLJ2": "line_high_delta_after_QLJ1"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ2_input_flow_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line_high_delta_after_QLJ2",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign3",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "计算3号汽轮机最小进气量",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "c02d5dc6-9db8-4a44-8412-8085b7357c39",
+				"version": "1.0",
+				"inputMapping": {
+					"QLJ3_settingPower_min": "HD_G3_W",
+					"HD_G3_ET_T": "HD_G3_ET_T",
+					"HD_G3_ET_P": "HD_G3_ET_P",
+					"HD_G3_S_T": "HD_G3_S_T",
+					"HD_G3_S_P": "HD_G3_S_P"
+				},
+				"inputExtraFields": {
+					"HD_G3_ET_F": 0
+				},
+				"outputMapping": {
+					"value": "QLJ3_input_flow_min"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "overload_reassign4",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "计算3号汽轮机超负荷下的减负荷情况",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line_high_delta_after_QLJ2 == 0",
+						"QLJ3_input_flow_correction": "QLJ3_input_flow",
+						"line_high_delta_after_QLJ3": 0
+					},
+					{
+						"condition": "QLJ3_enable == 1 && QLJ3_input_flow >= (QLJ3_input_flow_min + line_high_delta_after_QLJ2)",
+						"QLJ3_input_flow_correction": "QLJ3_input_flow - line_high_delta_after_QLJ2",
+						"line_high_delta_after_QLJ3": 0
+					},
+					{
+						"condition": "QLJ3_enable == 1 && QLJ2_input_flow < (QLJ3_input_flow_min + line_high_delta_after_QLJ2)",
+						"QLJ3_input_flow_correction": "QLJ3_input_flow_min",
+						"line_high_delta_after_QLJ3": "line_high_delta_after_QLJ2 - (QLJ3_input_flow - QLJ3_input_flow_min)"
+					},
+					{
+						"QLJ3_input_flow_correction": 0,
+						"line_high_delta_after_QLJ3": "line_high_delta_after_QLJ2"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "QLJ3_input_flow_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "line_high_delta_after_QLJ3",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign5",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "1号汽轮机发电量校正",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "c7bce625-adc1-4176-bb05-7aad94ead9fd",
+				"version": "1.0",
+				"inputMapping": {
+					"HD_G1_ET_T": "HD_G1_ET_T",
+					"HD_G1_ET_P": "HD_G1_ET_P",
+					"QLJ1_chou": "HD_G1_ET_F",
+					"HD_G1_S_T": "HD_G1_S_T",
+					"HD_G1_S_P": "HD_G1_S_P",
+					"QLJ1_input_flow_correction": "HD_G1_S_F"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "QLJ1_output_power_correction"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "overload_reassign6",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "2号汽轮机发电量校正",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "3cd1d882-9c9d-4e64-8f05-4340f3e6f86e",
+				"version": "1.0",
+				"inputMapping": {
+					"HD_G2_ET_T": "HD_G2_ET_T",
+					"HD_G2_ET_P": "HD_G2_ET_P",
+					"QLJ2_chou": "HD_G2_ET_F",
+					"HD_G2_S_T": "HD_G2_S_T",
+					"HD_G2_S_P": "HD_G2_S_P",
+					"QLJ2_input_flow_correction": "HD_G2_S_F"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"value": "QLJ2_output_power_correction"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "overload_reassign7",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "3号汽轮机发电量校正",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "211c9f9f-95bc-4034-8328-070d7a2f2cad",
+				"version": "1.0",
+				"inputMapping": {
+					"QLJ3_input_flow_correction": "HD_G3_S_F",
+					"HD_G3_S_T": "HD_G3_S_T",
+					"HD_G3_S_P": "HD_G3_S_P"
+				},
+				"inputExtraFields": {
+				},
+				"outputMapping": {
+					"value": "QLJ3_output_power_correction"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "overload_reassign8",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "中压母管流量校正",
+			"parameters": {
+				"conditions": [
+					{
+						"line_middle_flow_correction": "QLJ1_input_flow_correction*QLJ1_enable + QLJ2_input_flow_correction*QLJ2_enable + QLJ3_input_flow_correction*QLJ3_enable + SJ6_input_flow + SJ4_input_flow + SJ3_input_flow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_middle_flow_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign9",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "中压母管线目标蒸汽流量校正",
+			"parameters": {
+				"conditions": [
+					{
+						"line_middle_Fm_correction": "line_middle_flow_correction - line_middle_Fe - boiler4_Fn*boiler4_enable"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_middle_Fm_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign10",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1,2号出口总流量校正",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line_middle_Fm_correction*SJ12_io_deltaP/(SJ12_io_deltaP+SJ7_io_deltaP) > (SJ1_enable*SJ1_flow_max + SJ2_enable*SJ2_flow_max)",
+						"SJ12_output_flow_correction": "SJ1_enable*SJ1_flow_max + SJ2_enable*SJ2_flow_max"
+					},
+					{
+						"SJ12_output_flow_correction": "line_middle_Fm_correction*SJ12_io_deltaP/(SJ12_io_deltaP+SJ7_io_deltaP)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ12_output_flow_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign11",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "7号双减出口流量校正",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "(line_middle_Fm_correction - SJ12_output_flow_correction) > SJ7_flow_max",
+						"SJ7_output_flow_correction": "SJ7_flow_max"
+					},
+					{
+						"SJ7_output_flow_correction": "line_middle_Fm_correction - SJ12_output_flow_correction"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ7_output_flow_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign12",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "中压母管剩余流量校正",
+			"parameters": {
+				"conditions": [
+					{
+						"line_middle_Fm_after_assign_correction": "line_middle_Fm_correction - SJ12_output_flow_correction - SJ7_output_flow_correction"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_middle_Fm_after_assign_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign13",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "7号双减入口流量校正",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "bfeea325-0a09-40dd-94f9-7150f89c0db7",
+				"version": "1.0",
+				"inputMapping": {
+					"SJ7_input_p": "input_pre",
+					"SJ7_input_temp": "input_temp",
+					"SJ7_output_p": "out_pre",
+					"SJ7_output_target_t": "target_out_temp",
+					"SJ7_output_flow_correction": "target_out_flow"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"input_flow": "SJ7_input_flow_correction",
+					"pre_open": "SJ7_pre_open_correction",
+					"temp_open": "SJ7_temp_open_correction",
+					"water_flow": "SJ7_water_flow_correction"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "overload_reassign14",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "2号双减出口流量校正",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "SJ2_enable == 1 && SJ12_output_flow_correction > SJ2_flow_max",
+						"SJ2_output_flow_correction": "SJ2_flow_max"
+					},
+					{
+						"condition": "SJ2_enable == 1 && SJ12_output_flow_correction <= SJ2_flow_max",
+						"SJ2_output_flow_correction": "SJ12_output_flow_correction"
+					},
+					{
+						"condition": "SJ2_enable == 0 && line_middle_Fm_after_assign_correction > SJ2_flow_max",
+						"SJ2_output_flow_correction": "SJ2_flow_max"
+					},
+					{
+						"condition": "SJ2_enable == 0 && line_middle_Fm_after_assign_correction <= SJ2_flow_max",
+						"SJ2_output_flow_correction": "line_middle_Fm_after_assign_correction"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ2_output_flow_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign15",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "1号双减出口流量校正",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "SJ1_enable == 1 && (SJ12_output_flow_correction - SJ2_output_flow_correction > SJ1_flow_max)",
+						"SJ1_output_flow_correction": "SJ1_flow_max"
+					},
+					{
+						"condition": "SJ1_enable == 1 && (SJ12_output_flow_correction - SJ2_output_flow_correction <= SJ1_flow_max)",
+						"SJ1_output_flow_correction": "SJ12_output_flow_correction - SJ2_output_flow_correction"
+					},
+					{
+						"condition": "SJ1_enable == 0 && line_middle_Fm_after_assign_correction > SJ1_flow_max",
+						"SJ1_output_flow_correction": "SJ1_flow_max"
+					},
+					{
+						"condition": "SJ1_enable == 0 && line_middle_Fm_after_assign_correction <= SJ1_flow_max",
+						"SJ1_output_flow_correction": "line_middle_Fm_after_assign_correction"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "SJ1_output_flow_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign16",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "2号双减入口流量校正",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "de30c693-a289-423b-9449-cce5726a5c80",
+				"version": "1.0",
+				"inputMapping": {
+					"SJ2_input_p": "input_pre",
+					"SJ2_input_temp": "input_temp",
+					"SJ2_output_p": "out_pre",
+					"SJ2_output_target_t": "target_out_temp",
+					"SJ2_output_flow_correction": "target_out_flow"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"input_flow": "SJ2_input_flow_correction",
+					"pre_open": "SJ2_pre_open_correction",
+					"temp_open": "SJ2_temp_open_correction",
+					"water_flow": "SJ2_water_flow_correction"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "overload_reassign17",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "1号双减入口流量校正",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "23276e2f-f34c-4991-b559-9ae3959fcf12",
+				"version": "1.0",
+				"inputMapping": {
+					"SJ1_input_p": "input_pre",
+					"SJ1_input_temp": "input_temp",
+					"SJ1_output_p": "out_pre",
+					"SJ1_output_target_t": "target_out_temp",
+					"SJ1_output_flow_correction": "target_out_flow"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"input_flow": "SJ1_input_flow_correction",
+					"pre_open": "SJ1_pre_open_correction",
+					"temp_open": "SJ1_temp_open_correction",
+					"water_flow": "SJ1_water_flow_correction"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "overload_reassign18",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "高压母管流量校正",
+			"parameters": {
+				"conditions": [
+					{
+						"line_high_flow_correction": "SJ1_input_flow_correction + SJ2_input_flow_correction + SJ7_input_flow_correction + QLJ4_input_flow"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_high_flow_correction",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "overload_reassign19",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "高压母管线实时目标蒸汽流量校正",
+			"parameters": {
+				"conditions": [
+					{
+						"line_high_Fm_real": "min(line_high_flow_correction - line_high_Fe, boiler_6_flow_max*boiler6_enable + boiler_7_flow_max*boiler7_enable + boiler_8_flow_max*boiler8_enable)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "line_high_Fm_real",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "line_high_flow7",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "高压母管线目标蒸汽流量",
+			"parameters": {
+				"timeWindowLength": 1800000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"max_pressure": 9,
+					"min_pressure": 8.8
+				},
+				"methods": [
+					{
+						"name": "line_high_Fm",
+						"expression": "y=line_high_pressure[1];z=line_high_Fm_real[1];x=if(!IsNull(x) && y < max_pressure && y > min_pressure, x, z)"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "boiler_load_assign0",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "当前蒸汽总产量",
+			"parameters": {
+				"conditions": [
+					{
+						"boiler_Fn": "boiler6_Fn + boiler7_Fn + boiler8_Fn"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "boiler_Fn",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "boiler_load_assign1",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "高压母管线负荷升降状态",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "line_high_Fm >= boiler_Fn",
+						"boiler6_fb_min": "boiler6_Fn * boiler6_enable",
+						"boiler6_fb_max": "max(boiler_6_flow_max * boiler6_enable, boiler6_Fn * boiler6_enable)",
+						"boiler7_fb_min": "boiler7_Fn * boiler7_enable",
+						"boiler7_fb_max": "max(boiler_7_flow_max * boiler7_enable, boiler7_Fn * boiler7_enable)",
+						"boiler8_fb_min": "boiler8_Fn * boiler8_enable",
+						"boiler8_fb_max": "max(boiler_8_flow_max * boiler8_enable, boiler8_Fn * boiler8_enable)"
+					},
+					{
+						"boiler6_fb_min": "min(boiler_6_flow_min * boiler6_enable, boiler6_Fn * boiler6_enable)",
+						"boiler6_fb_max": "boiler6_Fn * boiler6_enable",
+						"boiler7_fb_min": "min(boiler_7_flow_min * boiler7_enable, boiler7_Fn * boiler7_enable)",
+						"boiler7_fb_max": "boiler7_Fn * boiler7_enable",
+						"boiler8_fb_min": "min(boiler_8_flow_min * boiler8_enable, boiler8_Fn * boiler8_enable)",
+						"boiler8_fb_max": "boiler8_Fn * boiler8_enable"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "boiler6_fb_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler6_fb_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler7_fb_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler7_fb_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler8_fb_min",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler8_fb_max",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "boiler_load_assign2",
+			"moduleId": "Toolkit:Scoring",
+			"desc": "分配6，7，8号最优化负荷",
+			"parameters": {
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"instanceId": "DCB3E782-DB20-47A6-8C27-3B81F2E68F83",
+				"version": "1.0",
+				"inputMapping": {
+					"line_high_Fm": "totalFlow",
+					"boiler6_enable": "b6",
+					"boiler7_enable": "b7",
+					"boiler8_enable": "b8",
+					"boiler6_fb_min": "b6_min",
+					"boiler6_fb_max": "b6_max",
+					"boiler7_fb_min": "b7_min",
+					"boiler7_fb_max": "b7_max",
+					"boiler8_fb_min": "b8_min",
+					"boiler8_fb_max": "b8_max"
+				},
+				"inputExtraFields": {},
+				"outputMapping": {
+					"boiler6": "boiler6_fb_current",
+					"boiler7": "boiler7_fb_current",
+					"boiler8": "boiler8_fb_current"
+				},
+				"defaultValue": 0
+			}
+		},
+		{
+			"nodeId": "boiler_load_assign3",
+			"moduleId": "Toolkit:BufferAggregate",
+			"desc": "t1时刻目标蒸汽总产量",
+			"parameters": {
+				"timeWindowLength": 1800000,
+				"timeInterval": 5000,
+				"constantValues": {
+					"t1": 5000
+				},
+				"methods": [
+					{
+						"name": "line_high_Fm_t1",
+						"expression": "x=vlatest(timestamp, t1, line_high_Fm);x[1]"
+					},
+					{
+						"name": "boiler_Fn_t1",
+						"expression": "x=vlatest(timestamp, t1, boiler_Fn);x[1]"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "boiler_load_assign4",
+			"moduleId": "Toolkit:ConditionDerive",
+			"desc": "判断目标蒸汽总产量是否变化",
+			"parameters": {
+				"conditions": [
+					{
+						"condition": "!isNull(line_high_Fm_t1) && line_high_Fm_t1 == line_high_Fm && (boiler_Fn - line_high_Fm)*(boiler_Fn_t1-line_high_Fm) <= 0",
+						"boiler6_target_flow": "min(boiler6_fb_current, boiler_6_flow_max)",
+						"boiler7_fb": "min(boiler_7_flow_max, boiler7_fb_current)",
+						"boiler8_fb": "min(boiler_8_flow_max, boiler8_fb_current)"
+					},
+					{
+						"boiler6_target_flow": "min(boiler6_Fn + line_high_Fm - boiler_Fn, boiler_6_flow_max)",
+						"boiler7_fb": "min(boiler_7_flow_max, boiler7_fb_current)",
+						"boiler8_fb": "min(boiler_8_flow_max, boiler8_fb_current)"
+					}
+				],
+				"derivedFields": [
+					{
+						"name": "boiler6_target_flow",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler7_fb",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					},
+					{
+						"name": "boiler8_fb",
+						"label": "",
+						"type": "DOUBLE",
+						"measure": "CONTINUOUS"
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "DERIVETYPE",
+			"moduleId": "Toolkit:Derive",
+			"parameters": {
+				"keepOriginalFields": true,
+				"rules": [
+					{
+						"name": "type",
+						"type": "STRING",
+						"expression": "\"hongdou_load\""
+					}
+				]
+			}
+		},
+		{
+			"nodeId": "2",
+			"moduleId": "Output:Amqp",
+			"parameters": {
+				"name": "amqp-output",
+				"host": "rabbitmq-production",
+				"user": "iot",
+				"password": "allsmart@iot",
+				"vhost": "/iot",
+				"topic": ".hongdou_load_data_event",
+				"converter": {
+					"converterType": "realtime"
+				}
+			}
+		}
+	]
+}
