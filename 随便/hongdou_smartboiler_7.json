@@ -2932,7 +2932,7 @@
 			"nodeId": "GMGF0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "02853196-5d2a-4009-9364-ba1e662d291f",
 				"version": "1.0",
 				"inputMapping": {
@@ -2949,7 +2949,7 @@
 			"nodeId": "GMGF1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "2b3e48ec-de7d-11e9-9210-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -3132,7 +3132,7 @@
 			"nodeId": "GMKD1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "3aa7f36f-ea38-11e9-9e63-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -3148,7 +3148,7 @@
 			"nodeId": "GMKD2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "3aa7f370-ea38-11e9-a514-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -3164,7 +3164,7 @@
 			"nodeId": "GMKD3",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "3aa7f371-ea38-11e9-91fe-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -3180,7 +3180,7 @@
 			"nodeId": "DCFL2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "0b29f9e5-2089-4a1a-a931-feb111c69d1a",
 				"version": "1.0",
 				"inputMapping": {
@@ -3320,7 +3320,7 @@
 			"nodeId": "YCFL5",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3363,7 +3363,7 @@
 			"nodeId": "LHF0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3380,7 +3380,7 @@
 			"nodeId": "LHF1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3397,7 +3397,7 @@
 			"nodeId": "LHF2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3414,7 +3414,7 @@
 			"nodeId": "LHF3",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3431,7 +3431,7 @@
 			"nodeId": "LHF4",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3448,7 +3448,7 @@
 			"nodeId": "LHF5",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3503,7 +3503,7 @@
 			"nodeId": "YCFJ",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "1daa6d43-f777-4a33-bf30-5847b0ba9428",
 				"version": "1.0",
 				"inputMapping": {
@@ -3521,7 +3521,7 @@
 			"nodeId": "ECFJ0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3557,7 +3557,7 @@
 			"nodeId": "ECFJ2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "b60a9b3b-b3d5-47c0-8e9b-dae34b538a95",
 				"version": "1.0",
 				"inputMapping": {
@@ -3604,7 +3604,7 @@
 			"nodeId": "YFJ0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "eb72a50c-25f4-4e29-a02a-98dc3c7d44d0",
 				"version": "1.0",
 				"inputMapping": {
@@ -3625,7 +3625,7 @@
 			"nodeId": "YFJ1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "0aa31611-2345-4644-969b-d9410f3ee12c",
 				"version": "1.0",
 				"inputMapping": {
@@ -3817,7 +3817,7 @@
 			"nodeId": "LZJ0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "b01df921-f561-11e9-9e7a-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -4055,7 +4055,7 @@
 			"nodeId": "PPD1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -4072,7 +4072,7 @@
 			"nodeId": "PPD2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://10.0.0.204:14770/predict",
+				"remoteUrl": "http://ml-predict-svc:9001/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -4299,7 +4299,7 @@
 					{
 						"type": "\"SmartBoiler_7\"",
 						"uid": "\"76956b64-ee19-4f29-92a2-fd9d0173de87\"",
-						"corpId": "\"353dcec17803000\""
+						"corpId": "\"314cdadfe409000\""
 					}
 				],
 				"derivedFields": [
