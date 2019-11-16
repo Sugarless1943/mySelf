@@ -909,6 +909,26 @@
 							"storage": "DOUBLE"
 						},
 						{
+							"name": "negPressure1",
+							"dataType": "DOUBLE",
+							"storage": "DOUBLE"
+						},
+						{
+							"name": "negPressure2",
+							"dataType": "DOUBLE",
+							"storage": "DOUBLE"
+						},
+						{
+							"name": "flueOutlet_pre1",
+							"dataType": "DOUBLE",
+							"storage": "DOUBLE"
+						},
+						{
+							"name": "flueOutlet_pre2",
+							"dataType": "DOUBLE",
+							"storage": "DOUBLE"
+						},
+						{
 							"name": "steam_7",
 							"dataType": "DOUBLE",
 							"storage": "DOUBLE"
@@ -2809,7 +2829,7 @@
 			"parameters": {
 				"settings": {
 					"boiler_O2": 2,
-					"YF_PS1": 19,
+					"YF_PS1": -150,
 					"LZ_load_max": 90,
 					"LZ_load_min": 60,
 					"LZ_pre_load_max": 7.2,
@@ -2932,7 +2952,7 @@
 			"nodeId": "GMGF0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "eb78294f-2c95-4da7-a740-7a9f21dd2bde",
 				"version": "1.0",
 				"inputMapping": {
@@ -2949,7 +2969,7 @@
 			"nodeId": "GMGF1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "f78fe494-ea66-11e9-ae3d-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -3132,7 +3152,7 @@
 			"nodeId": "GMKD1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "4fbe00d5-c527-45dd-9613-99977004d5ba",
 				"version": "1.0",
 				"inputMapping": {
@@ -3148,7 +3168,7 @@
 			"nodeId": "GMKD2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "ab5d1ce8-e27d-49f9-99a9-06aca235b947",
 				"version": "1.0",
 				"inputMapping": {
@@ -3164,7 +3184,7 @@
 			"nodeId": "GMKD3",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "d3e9884e-cd19-41f9-ab75-7eb563009aa8",
 				"version": "1.0",
 				"inputMapping": {
@@ -3180,7 +3200,7 @@
 			"nodeId": "DCFL2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "0b29f9e5-2089-4a1a-a931-feb111c69d1a",
 				"version": "1.0",
 				"inputMapping": {
@@ -3320,7 +3340,7 @@
 			"nodeId": "YCFL5",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3363,7 +3383,7 @@
 			"nodeId": "LHF0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3380,7 +3400,7 @@
 			"nodeId": "LHF1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3397,7 +3417,7 @@
 			"nodeId": "LHF2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3414,7 +3434,7 @@
 			"nodeId": "LHF3",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3431,7 +3451,7 @@
 			"nodeId": "LHF4",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3448,7 +3468,7 @@
 			"nodeId": "LHF5",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3503,7 +3523,7 @@
 			"nodeId": "YCFJ",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "9491eeaa-8c09-42a2-abd4-56c35e13a392",
 				"version": "1.0",
 				"inputMapping": {
@@ -3521,7 +3541,7 @@
 			"nodeId": "ECFJ0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -3557,7 +3577,7 @@
 			"nodeId": "ECFJ2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "b4a6bd50-0308-45ae-ba53-05fe01fb0c93",
 				"version": "1.0",
 				"inputMapping": {
@@ -3580,7 +3600,7 @@
 			"parameters": {
 				"conditions": [
 					{
-						"boiler_top_temp": "(topTemperature1 + topTemperature2) / 2",
+						"boiler_top_temp": "(topTemperature1_8 + topTemperature2_8) / 2",
 						"boiler_neg_pre": "(negPressure1 + negPressure2) / 2"
 					}
 				],
@@ -3604,7 +3624,7 @@
 			"nodeId": "YFJ0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "fdf8a05b-24b3-41ef-b827-ac6ce44a6c88",
 				"version": "1.0",
 				"inputMapping": {
@@ -3625,7 +3645,7 @@
 			"nodeId": "YFJ1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "27be4ca3-d971-4203-ae6d-2c89ffb60a8a",
 				"version": "1.0",
 				"inputMapping": {
@@ -3700,9 +3720,6 @@
 			"nodeId": "YFJ5",
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
-				"settings": {
-					"YF_PS1": -150
-				},
 				"conditions": [
 					{
 						"YFJ_P_Change": "YFJ_P_Current - YF_PS1"
@@ -3726,13 +3743,12 @@
 				"timeWindowLength": 600000,
 				"timeInterval": 2000,
 				"constantValues": {
-					"t2": 60000,
-					"YF_PS1": -150
+					"t2": 60000
 				},
 				"methods": [
 					{
 						"name": "YFJ_neg_sub",
-						"expression": "x=vlatest(timestamp, t2, YFJ_P_Current);vsum(x-vrange(0,YF_PS1,YF_PS1,len(x)))/len(x)*t2/1000"
+						"expression": "x=vlatest(timestamp, t2, YFJ_P_Change);vsum(x)/len(x)*t2/1000"
 					}
 				]
 			}
@@ -3766,15 +3782,15 @@
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
 				"settings": {
-					"KDmin": 20
+					"YFLM": 20
 				},
 				"conditions": [
 					{
-						"condition": "YFH_Current <= KDmin",
-						"YFH": "KDmin"
+						"condition": "YFH_Current >= YFLM",
+						"YFH": "YFH_Current"
 					},
 					{
-						"YFH": "YFH_Current"
+						"YFH": "YFLM"
 					}
 				],
 				"derivedFields": [
@@ -3793,8 +3809,8 @@
 			"parameters": {
 				"conditions": [
 					{
-						"LZ_pre": "(LHF_pressure1 + LHF_pressure2) / 2",
-						"LZ_fre": "(LZJ_runFrequency1 + LZJ_runFrequency2) / 2"
+						"LZ_pre": "(LHF_pressure1_8 + LHF_pressure2_8) / 2",
+						"LZ_fre": "(LZJ_runFrequency1_8 + LZJ_runFrequency2_8) / 2"
 					}
 				],
 				"derivedFields": [
@@ -3817,7 +3833,7 @@
 			"nodeId": "LZJ0",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "16bd10d3-f55d-11e9-99a0-4cedfbbe0911",
 				"version": "1.0",
 				"inputMapping": {
@@ -4055,7 +4071,7 @@
 			"nodeId": "PPD1",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {
@@ -4072,7 +4088,7 @@
 			"nodeId": "PPD2",
 			"moduleId": "Toolkit:Scoring",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "6f7f7b7a-caf9-4c50-8e6c-5a6e5aaea86d",
 				"version": "1.0",
 				"inputMapping": {

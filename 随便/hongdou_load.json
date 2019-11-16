@@ -1993,7 +1993,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "3号双减最大出口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "ef920422-e7ae-4178-9334-edc797e0c5b3",
 				"version": "1.0",
 				"inputMapping": {
@@ -2035,7 +2035,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "3号双减的开度和入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "a0332d55-af56-425c-977c-b1811d6ae5f4",
 				"version": "1.0",
 				"inputMapping": {
@@ -2223,7 +2223,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号双减减压阀开度计算出口流量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"265739f6-5129-42cd-9d0c-578381b774ea",
 				"version":"1.0",
 				"inputMapping":{
@@ -2247,7 +2247,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号双减减压阀开度计算出口流量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"0bbf7bf2-86c8-41ef-a7f4-a5f236488d22",
 				"version":"1.0",
 				"inputMapping":{
@@ -2271,7 +2271,7 @@
 			"moduleId":"Toolkit:Scoring",
 			"desc":"3号双减进气量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"a0332d55-af56-425c-977c-b1811d6ae5f4",
 				"version":"1.0",
 				"inputMapping":{
@@ -2346,7 +2346,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "4号双减减温水量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"a0332d55-af56-425c-977c-b1811d6ae5f4",
 				"version":"1.0",
 				"inputMapping":{
@@ -2390,7 +2390,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "6号双减减温水量",
 			"parameters":{
-				"remoteUrl":"http://ml-predict-svc:9001/predict",
+				"remoteUrl":"http://10.0.0.204:14770/predict",
 				"instanceId":"db21f573-fbd1-48de-a436-b90925d64836",
 				"version":"1.0",
 				"inputMapping":{
@@ -2895,7 +2895,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "6号双减的开度和入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "3e5374e7-697d-4bbd-83ee-60709fde71ec",
 				"version": "1.0",
 				"inputMapping": {
@@ -3000,7 +3000,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号汽轮机最小进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "4c4962bb-dbc6-47d4-ae95-398f0fe85fcb",
 				"version": "1.0",
 				"inputMapping": {
@@ -3044,7 +3044,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号最小发电量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "3cd1d882-9c9d-4e64-8f05-4340f3e6f86e",
 				"version": "1.0",
 				"inputMapping": {
@@ -3067,7 +3067,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号汽轮机最小进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "20577ee6-dfc2-4f2f-b5a9-46e49eeb271a",
 				"version": "1.0",
 				"inputMapping": {
@@ -3111,7 +3111,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号最小发电量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "c7bce625-adc1-4176-bb05-7aad94ead9fd",
 				"version": "1.0",
 				"inputMapping": {
@@ -3154,7 +3154,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "4号汽轮机进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "a461d148-30ef-4952-b663-bccab948599c",
 				"version": "1.0",
 				"inputMapping": {
@@ -3177,7 +3177,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "4号汽轮机电负荷",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "a4bdf2f0-bde6-4314-adfb-793afe295ce9",
 				"version": "1.0",
 				"inputMapping": {
@@ -3330,7 +3330,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "3号汽轮机进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "c02d5dc6-9db8-4a44-8412-8085b7357c39",
 				"version": "1.0",
 				"inputMapping": {
@@ -3354,7 +3354,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号汽轮机进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "4c4962bb-dbc6-47d4-ae95-398f0fe85fcb",
 				"version": "1.0",
 				"inputMapping": {
@@ -3377,7 +3377,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号汽轮机进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "20577ee6-dfc2-4f2f-b5a9-46e49eeb271a",
 				"version": "1.0",
 				"inputMapping": {
@@ -3669,7 +3669,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "7号双减入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "bfeea325-0a09-40dd-94f9-7150f89c0db7",
 				"version": "1.0",
 				"inputMapping": {
@@ -3760,7 +3760,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号双减入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "de30c693-a289-423b-9449-cce5726a5c80",
 				"version": "1.0",
 				"inputMapping": {
@@ -3785,7 +3785,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号双减入口流量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "23276e2f-f34c-4991-b559-9ae3959fcf12",
 				"version": "1.0",
 				"inputMapping": {
@@ -4068,7 +4068,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "计算3号汽轮机最小进气量",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "c02d5dc6-9db8-4a44-8412-8085b7357c39",
 				"version": "1.0",
 				"inputMapping": {
@@ -4134,7 +4134,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号汽轮机发电量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "c7bce625-adc1-4176-bb05-7aad94ead9fd",
 				"version": "1.0",
 				"inputMapping": {
@@ -4157,7 +4157,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号汽轮机发电量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "3cd1d882-9c9d-4e64-8f05-4340f3e6f86e",
 				"version": "1.0",
 				"inputMapping": {
@@ -4180,7 +4180,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "3号汽轮机发电量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "211c9f9f-95bc-4034-8328-070d7a2f2cad",
 				"version": "1.0",
 				"inputMapping": {
@@ -4309,7 +4309,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "7号双减入口流量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "bfeea325-0a09-40dd-94f9-7150f89c0db7",
 				"version": "1.0",
 				"inputMapping": {
@@ -4400,7 +4400,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "2号双减入口流量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "de30c693-a289-423b-9449-cce5726a5c80",
 				"version": "1.0",
 				"inputMapping": {
@@ -4425,7 +4425,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "1号双减入口流量校正",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "23276e2f-f34c-4991-b559-9ae3959fcf12",
 				"version": "1.0",
 				"inputMapping": {
@@ -4593,7 +4593,7 @@
 			"moduleId": "Toolkit:Scoring",
 			"desc": "分配6，7，8号最优化负荷",
 			"parameters": {
-				"remoteUrl": "http://ml-predict-svc:9001/predict",
+				"remoteUrl": "http://10.0.0.204:14770/predict",
 				"instanceId": "DCB3E782-DB20-47A6-8C27-3B81F2E68F83",
 				"version": "1.0",
 				"inputMapping": {
