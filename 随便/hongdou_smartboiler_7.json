@@ -3904,28 +3904,21 @@
 			"nodeId": "LZJ4",
 			"moduleId": "Toolkit:ConditionDerive",
 			"parameters": {
-				"settings": {
-					"HP": 7.2,
-					"MP": 6.5,
-					"LP": 6,
-					"HFH": 90,
-					"LFH": 60
-				},
 				"conditions": [
 					{
-						"condition": "instaneousFlow >= HFH",
-						"LZ_Target": "HP"
+						"condition": "instaneousFlow >= LZ_load_max",
+						"LZ_Target": "LZ_pre_load_max"
 					},
 					{
-						"condition": "instaneousFlow < HFH && instaneousFlow > LFH",
-						"LZ_Target": "MP"
+						"condition": "instaneousFlow < LZ_load_max && instaneousFlow > LZ_load_min",
+						"LZ_Target": "LZ_pre_load_mid"
 					},
 					{
-						"condition": "instaneousFlow <= LFH",
-						"LZ_Target": "LP"
+						"condition": "instaneousFlow <= LZ_load_min",
+						"LZ_Target": "LZ_pre_load_min"
 					},
 					{
-						"LZ_Target": "MP"
+						"LZ_Target": "LZ_pre_load_mid"
 					}
 				],
 				"derivedFields": [
